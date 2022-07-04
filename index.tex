@@ -1,0 +1,101 @@
+%Packages are included below, these are akin to libraries in other programming languages. As far as I can tell, there is no reason to reduce the number of packages included in a document. It might compile faster, but overleaf compiles fast so this should not be an issue.
+\documentclass[
+fontsize=11pt,
+paper=a4,
+abstract=true,
+headings=standardclasses,
+chapterprefix=false,
+numbers=noenddot,
+parskip=half+, % comment this out if you do not want an empty half line between paragraphs, but please read the KomaScript Guide and search for parskip (around page 82): ftp://ftp.dante.de/pub/tex/macros/latex/contrib/koma-script/scrguide.pdf
+]{scrreprt}
+% \documentclass[11pt]{report} %tells the compiler that this is a 'report' style document, and the main font size.
+\usepackage{setspace} %allows the use of '\doublespace' to set line spacing
+\usepackage[utf8]{inputenc} %inclusion of this is optional, overleaf includes it in its compiler so it is not necessary, it may be necessary for other compilers.
+\usepackage{wrapfig} %if it is desirable to wrap text (see https://www.overleaf.com/learn/latex/Wrapping_text_around_figures).
+\usepackage{graphicx} %this allows graphics to be put in easily
+\usepackage{float}%this allows you to put them in good places
+\usepackage[version=4]{mhchem} %this is good for chemical reactions
+\usepackage{amsmath} %maths package
+\usepackage{amssymb} %symbol package
+\usepackage{textcomp,gensymb} %more symbols (eg \degree)
+\usepackage{appendix} %self explanatory
+\usepackage{colortbl} %good for colouring in cells on a table
+\usepackage{rotating} %allows you to rotate graphics
+\usepackage{bm} %helps bold things
+\usepackage{multirow} %for tables
+\usepackage{longtable} %for long tables
+\usepackage{booktabs} %more tables
+\usepackage{caption} %allows captions for graphics
+\usepackage[nottoc]{tocbibind} %adds the bibliography to the table of contents
+\usepackage{subcaption} %allows subcaption for multiple images in one graphic
+
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{hyperref} %this is great for putting hyperreferences in the document.
+\usepackage[table]{xcolor} %more colouring of tables
+\definecolor{Gray}{gray}{0.9} %this defines a colour to be used and gives it a name. This is a colour called 'Gray' it is 'gray' with transparency 0.9
+% \input{preamble/arduinoLanguage.tex}  %I used this to format arduino code well in my report. I'm sure there are other packages/methods for other languages.
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    linktoc=all,
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=cyan,         % color of file links
+    urlcolor=magenta        % color of external links
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} % you have to do this to start the document
+\pagenumbering{roman}
+\input{I-preamble/01titlepage}
+\input{I-preamble/02copyright}
+\input{I-preamble/03abstract} 
+% \input{I-preamble/04dedications}
+
+\tableofcontents 
+\listoffigures 
+\listoftables 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{II-chapters/01intro}
+\pagenumbering{arabic}
+\input{II-chapters/02prelims}
+\input{II-chapters/03model}
+\input{II-chapters/04markdown}
+\input{II-chapters/05tools}
+\input{II-chapters/06discussion}
+\input{II-chapters/07conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \appendix
+% \input{appendices/equations.tex}
+% \input{appendices/sessionprotocol.tex}
+% \input{appendices/code.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}
