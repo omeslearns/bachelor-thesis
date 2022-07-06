@@ -1,10 +1,81 @@
 \chapter{Introduction}
-Here you should put a short introduction to your chapter. What is covered? In how much detail? Imagine you were coming back to this in 10 years time and wanted to find that one key equation, this part of the chapter should orient the reader to help find that information.
+\pagenumbering{arabic}
+\acrfullpl{pkg} are an uncharted research area \cite{Balog2019PersonalKG}, with unclear and ambiguos Definitions. PKGs \Gls{html} \Gls{pkg}
 
 \section{Overview} \label{sec:overview}
 
-\section{Vision}
+Current Tools for Personal Knowledge Management are not as powerful as needed to tackle the increasing problem of (personal) **Information Overload**. The Term PKG has recently been used by emerging Note-Taking Tools, some of them calling themselves “Tools for Thought” (TFTs). Although these tools advertise being able to manage a “second brain” or PKG, they have some crippling limitations, which make them unfit candidates for maintaining a lifelong PKG [Reference other PKG Book Chapter?]: 
 
-\section{Contributions}
+1. **based on proprietary Technology and Formats.** This prevents interoperability, integrating external knowledge, data ownership… and causes vendor lock-in, data silos… 
+2. **lack of expressivity (semantics).** They do not support formal structure or semantics…
+3. **lack of support for mature query languages.** consequence of proprietary technology. only databases can support query languages, but TFTs are mostly based on text files, which they process to roll their own proprietary non-standard search, indexing and database systems.
 
-\section{Outline}
+**In conclusion, there are no (relevant) Tools for creating PKGs based on open or standardised Technologies and Formats.**
+
+The Semantic Web Community is building standards for semantic Knowledge Graphs. Theoretically one could use Semantic Web Technologies and Tools to create PKGs; **Unfortunately however, the tools based on Semantic Web Standards (SWS) are notoriously hard to understand and use**. Expecting non-technical users to manage their personal knowledge with them is unrealistic.
+
+…
+
+There is potential here, just like bringing the Computer from Industry and Academia into personal homes in 19xx transformed the world by resulting in the internet, social media and smartphones; Bringing structured knowledge and databases, whose power is well established in Industry and Academia, into the personal domain could usher a new age of Knowledge proliferation and collaboration.
+
+With the need for PKG Tools based on open standards established, in this Paper I/We propose a Model, Structural Framework and Prototype to enable creating PKGs based on basic graph theory and SWS like RDF, OWL and SPARQL.
+
+---
+
+~~Furthermore the Domains of PKGs and Knowledge Management is lacking standardization, and is plagued by ambiguousity of fundamental Definitions or interchangeably used Terms with different Meanings, e.g., Data, Information, Knowledge, Knowledge Base, Knowledge Graph, etc.~~
+
+\section{Vision (for a PKG Ecosystem)}
+
+Instead of haggling about definitions, motivation, etc, I want to highlight what future possibilities developing a mature PKG ecosystem can hold.
+
+Due to the ambiguosity of the Terms and the technological Expertise needed to navigate the field, The Vision of PKGs is hard to grasp for people that are not specialists in a Domain closely related to Information/ Computer Science. That’s why here, rather than trying to come up with detailed definitions or features of the PKG Ecosystem, I want to highlight some of the possibilitys this technology can enable. I think this will help grasp why this Technology is important and highlight the paradigm shift that this Technology will enable. This is a prerequisite to embracing it’s development and enthusiasm.
+
+- **Data** **centralisation, ownership, access rights, two way binding**. Imagine after changing your address you just have to update the adress in your PKG, share the Link to that Information, and all external Agents will always retrieve the most up to date address, Instead of having to update your adress across dozens of data silo locations. See access rights all in one place, and revoke at any time.
+- **Free Association of Knowledge.** Imagine you are visiting a Wedding in spain with some wonderful people and are dancing to a Song. In a PKG you can freely associate / link all of this information, just like your brain does. You  then have multiple associative retreaval paths to remember the song, because it is connected to the people, the wedding and the spain trip. You can also freely associate any information with the song, for example make notes, which is not possible on vendor locked data, that is coupled with the ui, like spotify.
+- **Interoperability/ portability.** Data centric applications means you are not bound by I/O changing or Applications / UIs changing.
+
+\section{Approach}
+
+Create a Knowledge Management Tool that
+
+\begin{itemize}
+    \item is standards based
+    \item easy to use
+    \item creates a Personal Knowledge Graph
+\end{itemize}
+
+Important in this endevor is to keep in mind what the PKG data model and PKG Apps need to be capable of. all the memex II features + what about new I/O and technologies. You need to look into the future, and that can only be achieved by using a data centric approach, that can be interacted with by any applications.
+
+by standards based we mean leveraging Semantic Web Standards. By easy to use we mean the tool should have a good User Interface (UI) and User Experience (UX) and additionally should not require any technical expertise (Semantic Web, Knowledge Management or otherwise). For our understanding of a PKG refer to the appendix or [[relevant citation]]. The Format for saving the PKG should be founded in SWS, while work on standardising basic PKG features needs urgent work.
+
+\section{Outline (merge with approach?)}
+In chapter 1 we will propose a model for representing the structured Knowledge of a PKG with RDF and OWL; Chapter 2 will explore an extension to Markdown, to enable freely mixing structured and unstructured Knowledge. Then in chapter 3 we will analyse what a PKG Tool needs to be capable of and create a prototypical application to show how our model can be used to abstract away technical expertise of SWS by focusing on Usability and UI
+
+\section{unsorted}
+A PKG is a lifelong second brain; it includes your memories, knowledge, thoughts. Vendor Lock-in, Data Silos, Proprietary Formats are out of the question. Privacy, Data Ownership, Control and Interoperability are necessitys not up for discussion.
+while limitations 1-3 can be solved by creating a model for standards based pkgs, limitation 4-5 need to be adressed on the application level.
+
+currently pkg tools are the main thing, but going forward data needs to be the focus, not tools. Like there are .png files, and many different tools can work with .png files. Imagine 
+
+data centralisation allows freely associating your knowledge
+
+unfortunately the innate complexity of Knowledge management and related terms means, that people outside the field think of it like some kind of phantastical IA device that‘s not realistic or comprehensible.
+
+I just want to give some quick examples of the benefits a data centric approach to personal knowledge management could bring and how this breaks a lot of status quos in how we use software and how we have come to accept a lot of it without questioning it
+
+1. change adress in one place. benefits also you can always see who has access to your information and revoke it at any time. unlike with data silos of external vendors, where you don‘t always have control of how to delete and update your data.
+2. wedding trip with favorite music and persons all interlinked 
+3. commenting and linking freely unrelated to external software
+4. porting your media librarys freely between services, interacting with people on other platforms than yourself
+
+while these ideas where facing unsurmountable hurdles in the 1950 century (history knowledge graph) by now all of these capabilities and more are possible.
+
+Problem: Except for specialists, almost no one is aware of Semantic Web
+
+- how can these visions be merged with the needs of today by basing Knowledge Management on a Graph Framework, how this graph framework can be implemented with Semantic Web Technologies and an evaluation of PKG Tools and their feature requirements to solve this complex topic of creating digital “second brains”
+- **Information Overload.** Ever increasing amount of Knowledge (papers, bookmarks, media libraries, mail, calendar, tasks, projects), but human brain capacity for storing and processing information is the same as thousands of years ago.
+- personal data is spread out in external data silos
+
+- A noticeable phenomenon in the history we have sketched is the never-ending growth of data and knowledge, in both size and diversity. [A noticeable phenomenon in the history we have sketched is the never-ending growth of data and knowledge, in both size and diversity.](https://www.notion.so/A-noticeable-phenomenon-in-the-history-we-have-sketched-is-the-never-ending-growth-of-data-and-knowl-d844784676ec4cd8bd3c861b3c43b798)
+
+pkg is more like a .mp3 or .png file, than it is like photoshop
