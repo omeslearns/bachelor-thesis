@@ -1,18 +1,51 @@
+% \begin{figure}[h]
+% \centering
+% \includegraphics[scale=0.5]{graph_a}
+% \caption{An example graph}
+% \label{fig:x cubed graph}
+% \end{figure}
+
 \documentclass[
+% twoside,
 fontsize=12pt,
 paper=a4,
 abstract=true,
+% listof=totoc,
 headings=standardclasses,
 chapterprefix=false,
 numbers=noenddot,
 parskip=half+, % comment this out if you do not want an empty half line between paragraphs, but please read the KomaScript Guide and search for parskip (around page 82): ftp://ftp.dante.de/pub/tex/macros/latex/contrib/koma-script/scrguide.pdf
-]{scrreprt}
+]{scrreport}
+
+\usepackage{enumitem}
+\usepackage{varwidth}
+\usepackage{tasks}
+
+\usepackage{listings} %source code listings
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\footnotesize,
+    % breakatwhitespace=false,         
+    % breaklines=true,                 
+    captionpos=t,                    
+    % keepspaces=true,                 
+    % numbers=left,                    
+    % numbersep=5pt,                  
+    % showspaces=false,                
+    % showstringspaces=false,
+    % showtabs=false,                  
+    % tabsize=2
+}
+
+\lstset{style=mystyle}
+
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
 \graphicspath{ {./img/} }
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[automake,acronym]{glossaries-extra}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage[automake,acronym, toc]{glossaries}
 \makeglossaries
 \loadglsentries{glossary.tex}
 \usepackage{hyperref}
@@ -27,12 +60,13 @@ parskip=half+, % comment this out if you do not want an empty half line between 
 }
 \usepackage[
 backend=biber,
-style=ieee,
-sorting=ynt
+% style=ieee,
+sorting=nyt
 ]{biblatex}
 % \PassOptionsToPackage{hyphens}{url}
 \addbibresource{references.bib} %Import the bibliography file
 
+\renewcommand\lstlistlistingname{List of Source Code}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Preamble
@@ -40,35 +74,43 @@ sorting=ynt
 \title{Standards Based Personal Knowledge Graphs}
 \author{Omes Felix Baltes}
 \date{15. July 2022}
+
 \begin{document} % you have to do this to start the document
-\pagenumbering{roman}
 \input{I-preamble/01titlepage}
+\pagenumbering{roman}
 \input{I-preamble/02copyright}
 \input{I-preamble/03abstract} 
-% \input{I-preamble/04dedications}
+\input{I-preamble/04dedications}
 
-\tableofcontents 
+\tableofcontents
 \listoffigures 
-\listoftables 
+\begingroup
+\let\clearpage\relax
+\listoftables
+\endgroup
+\begingroup
+\let\clearpage\relax
+\lstlistoflistings
+\endgroup
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chapters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{II-chapters/01intro}
-\input{II-chapters/02prelims}
-\input{II-chapters/03model}
-\input{II-chapters/04markdown}
-\input{II-chapters/05tools}
-\input{II-chapters/06discussion}
-\input{II-chapters/07conclusions}
+\input{II-chapters/01introduction.tex}
+\input{II-chapters/02preliminaries.tex}
+\input{II-chapters/03relatedwork.tex}
+\input{II-chapters/04Ecosystem.tex}
+\input{II-chapters/05model.tex}
+\input{II-chapters/06markdown.tex}
+\input{II-chapters/07prototype.tex}
+\input{II-chapters/08discussion.tex}
+\input{II-chapters/09conclusions.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \appendix
-% \input{appendices/equations.tex}
-% \input{appendices/sessionprotocol.tex}
-% \input{appendices/code.tex}
+\appendix
+\include{II-chapters/AARDFun.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography

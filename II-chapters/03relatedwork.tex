@@ -1,0 +1,29 @@
+\chapter{Related Work} \label{ch:relatedwork}
+
+A search in academic search engines yields about a dozen results with "Personal Knowledge Graph" in the title; They are a novel research area. We observed different perceptions of PKGs in related work, depending on the perspective and context of the authors. These perceptions can roughly be grouped into the following categories:
+
+\textbf{PKGs as special cases of Knowledge Graphs.} Here PKGs are conceived as KGs about an Individual, or personalized KGs. The focus lies on knowledge "about" the person and its relationships to other entities. This knowledge could for example be used by personal assistants to great effect. The PKG is mostly generated and maintained without intervention by the user.
+
+\textbf{PKGs as the basis for Personal Knowledge Management.} The focus lies on knowledge "relevant" to the person. The Knowledge is in part generated and maintained by the user. Tools for interacting with PKGs are a logical consequence.
+
+In the following sections, we will look at related work in each of these categories.
+
+\section{Knowledge Graphs}
+
+Hogan et al provide a comprehensive overview of Knowledge Graphs and related concepts and technologies \cite{Hogan2021KG}. They notably only distinguish two types of knowledge graphs in practice: open knowledge graphs and enterprise knowledge graphs. They explain that consensus-based schema, identity and context play a key role for knowledge graphs. If PKGs were implemented the same as the knowledge graphs described by Hogan et al, everything covered in their paper would also apply to them. In contrast to open and enterprise KGs, however, PKGs will probably not be maintained by large organizations or communities. This is an important difference to keep in mind because it will likely result in schemas and contexts that are not consensus-based and thus less expressive, harder to merge and not in line with linked open data principles \cite{lod}.
+
+Balog and Kenter established PKGs as a research area with their research agenda \cite{Balog2019PKGAgenda}. They define PKGs as "a source of structured knowledge about entities and the relation between them, where the entities and the relations between them are of personal, rather than general, importance. The graph has a particular “spiderweb” layout, where every node in the graph is connected to one central node: the user". They differentiate general KGs from PKGs by stating that KGs concern public or global entities. This rules out non-public entities that Individuals might find relevant for their PKGs. Their definition is quite broad, but we would like for it to not enforce a "spiderweb" layout and also include entities that are just relevant and not related to the user. Broadening the definition in this way would connect the perceptions of PKGs about an Individual and PKGs for personal knowledge management.
+
+Safavi et al describe a methodology to summarize KGs personalized to the user's interest \cite{Safavi2019PKGSum}. This highlights other differences between PKGs and KGs: Data in a PKG should be relevant to its user, and it should focus on being human readable. Many KGs are primarily composed of knowledge relevant to machines.
+    
+
+\section{Personal Knowledge Management}
+Bush wrote about his vision of the memex, an external device acting as a  supplement to an individual's memory \cite{Bush1945Memex}. This vision was held back by technical limitations at the time, but highly influential. Davies et al were motivated by this vision and wrote about personal knowledge bases 60 years later, noting that the technical hurdles were gone and suggesting semantic web technologies, which were new at the time, as a promising approach. \cite{Davies2005Memex60}. These papers were highly influential to this thesis. Even though the terms have changed from "memex" and "personal knowledge base" to "second brain", "personal knowledge graph" etc., their vision remains in large parts intact and unfulfilled as discussed in this thesis.
+
+Velitchkov writes about Ontologies for his PKM tool Roam Research \cite{roamOntologies}. He emphasizes that ontologies for personal knowledge graphs are important and beneficial.
+
+Matuschak writes about the limitations of Text and Books and analyses the difficulty of building intelligence augmenting tools for thought \cite{Matuschak2019TTFT}.
+
+\section{PKG Tools}
+
+As mentioned in chapter \ref{ch:introduction}, there are several tools that associate themselves with PKGs. The most relevant ones at the time of writing are Notion, Obsidian, Roam Research, LogSeq and RemNote \cite{notion, roam, obsidian, logseq, remnote}. Their shortcomings will be discussed in chapter \ref{ch:ecosystem}.

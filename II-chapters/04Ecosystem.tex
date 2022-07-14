@@ -1,0 +1,163 @@
+\chapter{PKG Ecosystem} \label{ch:ecosystem}
+
+Kickstarting the development of a PKG ecosystem (PES) is a prerequisite for realizing the vision of PKGs. The PES would consist of all the technologies, protocols and models that enable individuals to interact with their PKGs. Apart from enabling personal knowledge management, a PES could also address other problems in our technology landscape. Concerns about data silos, vendor lock-in and privacy are increasingly brought up in research and politics \cite{missingCitation}. Considering the examples in chapter \ref{ch:introduction} we believe a PES is a promising approach to these problems.
+
+We separate the PES into three categories, similar to tech stacks found in the industry:
+% include a figure of this structure
+
+\begin{itemize}
+    \item Data model
+    \item Backend and Protocols
+    \item Applications
+\end{itemize}
+
+The data model will be discussed in detail in chapter \ref{ch:model}.
+
+The backend will have the typical responsibilities of a backend server for modern applications. It will store an implementation of the data model, provide protocols for accessing the data, handle requests, manage access rights, etc.
+We will only describe functionalities expected from this backend, the implementation will not be a part of this thesis.
+
+Once the data model and backend exist, they will provide a software platform that developers can target with their applications. For applications to work consistently across backends provided by different vendors, it would be beneficial for the data model and protocols to be open standards.
+We present a prototype of such an application in chapter \ref{ch:prototype}.
+
+The PES is a large-scale undertaking similar in complexity to online cloud services. In this chapter, we analyze required functionalities this ecosystem needs to be capable of.
+
+% It was noted that Knowledge Graphs can be considered, more than a precise notion or system, an evolving project, and a vision \cite{KGHistory}. The same applies to PKGs. This evolving project is composed of requirements identified in Personal Knowledge Management over the last decades. The Term PKG ecosystem encompasses PKGs, Tools that work with them, and the entire Tech Stack that enables both to function. 
+
+% Before considering the Data and Storage Models underlying a PKG, there needs to be a clear understanding of what the PKG Ecosystem needs to be capable of. We need to consider these feature requirements from the outset; otherwise, the designed model might be unfit for the tasks ahead.
+
+% First I ~~identify~~ collect requirements of the PKG Ecosystem. Afterward, I will compare these requirements with the State of the art of Personal Knowledge Management Tools and analyze the gaps that need to be filled.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functionalities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To gather the requirements for the PKG ecosystem, we assembled ideas present in research and industry \cite{Bush1945Memex, Davies2005Memex60, Matuschak2019TTFT,jones2007PIM}. Some of these ideas are already established and implemented across products. Others are theoretical or might even pose to be major implementation hurdles. Nonetheless, all of them are possible to implement with current technological capabilities.
+
+For each of the proposed categories, we list the essential ideas that we deem requirements for the successful development of a PKG ecosystem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Data model}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Centralization.} All of the data in a PKG needs to be accessible in one place. This approach corresponds to a trend in operating systems search engines. Originally files, mails, calendars, bookmarks, and notes were coupled with their apps data silos and search. The modern approach is to have a single quick search that accesses data from all types of apps present on your PC, providing a centralized retrieval path.
+
+\textbf{Free association of knowledge elements.} Our brain is able to freely associate any thought, without worrying about the type, category or hierarchy. We can associate the song we hear at a wedding, with the people, location, dance and food. Technology we use today, creates artificial partitions on our knowledge because it is stored in data silos. Interoperability is hindered by vendor lock-in. We are unable to connect our media, contacts, location and calendars. This limits our ability to associatively organize and express knowledge, and the number of paths available to retrieve it.
+
+\textbf{Knowledge types and semantics.} A PKG needs to be able to store structured, semi- and unstructured Knowledge. Unstructured knowledge is data without metadata, e.g., text or images. Semi-structured knowledge includes metadata and structured knowledge is typed and based on schemata, e.g., database entities. Unstructured knowledge is quickly generated, like  a "thoughtsream" captured as a note or voice memo. Structured knowledge takes time to generate, organize and enrich, because types and schmema need to be considered for every entity. 
+
+\textbf{Transclusion.} Also known as embeds or components, transclusion describes the ability for the same data to appear in several places. This is enabled by including data by reference, rather than duplicating it. For example, transclusion enables multiple documents that use the same paragraph to be updated as soon as the paragragh is changed in any location. It is a very powerful concept, that is barely used by non-technical people, where copy and pasting data is the norm.
+
+\textbf{Based on open standards.} A PKG data model based on open standards provides portability and interoperability. We argue this is essential for knowledge work because it enables integrating and extracting data from diverse data sources.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Applications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This section addresses applications for personal knowledge management. 
+% For unstructured Information a frictionless thought capture process that does not interrupt the flow of ideas, is essential. Allowing Knowledge to be quickly captured as a Thoughtstream uninterrupted by prompts to structure it is essential for productive thinking.
+
+\textbf{Text editing.} PKG tools need to allow free text processing. As we will see in the next section, all current PKG Tools include either a plain text markdown editor, an outliner markdown editor, or a WYSIWYG text processor.
+
+\textbf{Views and filters.} PKGs will potentially store massive amounts of knowledge, so apps working with them need to provide filters to limit the complexity and volume of data shown. Different visualizations like interactive graphs, tables, galleries, and boards aided by filters can be used to present and navigate relevant information in a digestible way.
+
+\textbf{Flexible refactoring.} changes of any magnitude to the schema, entities, relationships, and views in a PKG need to be frictionless and quick. This allows smooth refactoring of unstructured Knowledge into structured Knowledge.
+
+\textbf{External knowledge.} Apps should provide features for integrating external knowledge. Structured external knowledge should be searchable and queryable. For semi- and unstructured knowledge, source capture and transclusion are considerations. When importing external knowledge, prompts and filters should be available to filter relevant knowledge.
+    
+\textbf{Bi-directional Links} The internet enables unidirectional links between websites. With bi-directional links, any site would show all sites that link to it. They have not been included, due to vandalism concerns. For moderated networks like wikis or personal knowledge graphs, vandalism is not a concern and bi-directional links are established as useful features.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Backend}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As the backend is similar to existing solutions, the required features are well known and established.
+
+\textbf{Multiplatform Sync} PKGs should be available on any platform and sync changes between devices.
+
+\textbf{Cloud Drive for Files} Most current PKM tools only allow for import and export of files. Editing, annotating or opening the files in other programs is not possible, which is a severe limitation. A PKG needs to provide or integrate with a cloud drive to access and edit files in real-time. This way files can also be freely associated with other data in the PKG.
+
+\textbf{Version History} changes need to be backed up and reversible.
+
+\textbf{Protocols and APIs} The backend should be compliant with standard protocols that enable access and querying of the stored knowledge.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{PKM Tool Software landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this Section we provide detailed comparisons of current personal knowledge management tools in the form of feature matrices. We have looked at more than 50 Tools, and selected the most relevant and mature ones for comparison.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fm01overview.png}
+    \caption{PKM tool overview}
+    \label{fig:fm01}
+\end{table}
+
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fm02features.png}
+    \caption{PKM tool workflows -- what can they be used for?}
+    \label{fig:fm02}
+\end{table}
+
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fm03editing.png}
+    \caption{PKM tool editing -- text processing capabilities}
+    \label{fig:fm03}
+\end{table}
+
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fm04relationships.png}
+    \caption{PKM tool linking -- relationships between knowledge elements}
+    \label{fig:fm04}
+\end{table}
+
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fm05formats.png}
+    \caption{PKM tool formats -- interoperability with file formats}
+    \label{fig:fm05}
+\end{table}
+
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+EXPLANATION OF THE FIGURE ABOVE \\
+
+
+As we can see from the table, most of these tools are built on text documents, with hierarchy and without transclusion…
+
+Notion is a notable example that enables Databases for the user…
+
+~~PKM putting everything into hierarchy makes free association impossible. This leads to copying of Information, with some of it outdated…~~
+
+\section{Analysis}
+
+None of the current Applications fulfill the outlined requirements. Most of them are based on Text Documents mixed with proprietary Databases and Storage Formats. The Knowledge is stored in Data Silos or Text Files with proprietary Syntax. Interoperability and Portability of the stored Knowledge is thus hindered by Vendor Lock-in.
+
+~~The Applications also do not support APIs for querying the internal Knowledge or integrating external Knowledge, semantics, reasoning, yada yada yada…~~
+
+% würde mir einen Absatz zum Storage Model wünschen. Was ist das, und eine Abgrenzung vom Data Model. Offene Fragen, ob es in deiner Thesis noch vorkommt oder nur das Data Model.
+The data and storage model are fundamental for PKGs, because they limit what you can store and express in it. The data model needs to be flexible; able to express and associate everything from atomic Entities (Terms, Concepts) to complex composite Entities (Projects, Sciencific Work). [Building Memex 60 years later] The proposal of such a model will be the topic of the next chapter.
+
+% was ist mit data-centric gemeint?
+With a Data Model based on open standards, PKGs should be data-centric, interoperable and portable. Date-centric means that data is separated from UI and presentation. Interoperable means it can read and write standard data formats. Portable means the data should work in any application designed for these standards. Applications will come and go operating on the data, but not changing the nature of the PKG. Even advances in technology like brain-computer Interfaces or Artificial Intelligence should not render your PKG obsolote, so it can be a lifelong Personal Knowledge Management Framework.

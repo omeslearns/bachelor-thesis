@@ -1,0 +1,58 @@
+\chapter{Introduction} \label{ch:introduction}
+\pagenumbering{arabic}
+The never-ending growth of data and information is overwhelming the natural capacities of the human brain. This phenomenon is known as the information overload problem. Personal Knowledge Graphs (PKGs) have recently garnered increasing attention from the industry as a promising solution to information overload on the individual level. The need for Individuals to structure and organize sources of knowledge has long been recognized. Over the last decades, a multitude of productivity tools have been developed to augment the abilities of the human mind. Applications for text processing, file and task management, vocabulary training, note-taking, and mind-mapping, all try to help humans manage the information and knowledge at their disposal. 
+
+% Personal Knowledge Graphs (PKGs) have recently garnered increasing attention from the Industry. Encompassing concepts from Knowledge Graphs (KGs), Personal Knowledge Management (PKM) and Intelligence Amplification, PKGs are a promising approach to the information overload problem on the individual level. Information overload is caused by the never-ending growth of Data and Information overwhelming the natural capacities of the human brain. The need for Individuals to structure and organize these sources of knowledge has been recognized. Over the last decades, a multitude of productivity tools have been developed to augment the abilities of the human mind. Applications for text processing, file and task management, vocabulary training, note-taking, and mind-mapping, all try to help humans manage the information and knowledge at their disposal. 
+
+In more recent years there has been a wave of tools focusing on the need to have all of this knowledge centralized and interlinked. This freely associative approach to knowledge is supposed to mimic the way humans think. Some of these tools take this as motivation to market themselves as “Tools for Thought”, claiming to enable maintenance of a lifelong “Second Brain”, “Personal Knowledge Graph”, or “Digital Garden”.
+
+In Research, PKGs are a mostly uncharted area, based on Knowledge Graphs (KGs), and associated with Personal Knowledge Management (PKM) and Intelligence Amplification. As even the definition of Knowledge Graphs is contentious, PKGs are not clearly defined yet. In broad terms, PKGs are data graphs of structured Knowledge that is relevant or related to the person in question. The Notion of a PKG is an evolving concept that combines ideas from Computer Science, Information Science, Data Science, Mathematics, Psychology and Philosophy. The focus of this thesis is on the practical implications of PKGs serving as the foundation for Personal Knowledge Management.
+
+\section{Vision}
+% avoid talking down to your readers
+The vision of personal knowledge management based on PKGs can be realized by building a PKG Ecosystem. This ecosystem would consist of a standardized data model for PKGs and all the tools and technologies that interact with it. To motivate this idea, we present examples of how the PKG Ecosystem might impact the way we interact with information, knowledge and technology. We hope this will develop an understanding for the importance of this technology, and the paradigm shifts it can enable, as well as provoke thoughts on the status quo of data ownership in technology. Consider the following examples:
+
+\textbf{Data centralization, ownership and binding.} \sout{Imagine} after changing your address you just have to update the address in one place: Your PKG. From this point onwards, anyone you shared your address with previously, will automatically retrieve the most up-to-date address. In your PKG tool, you can always see who has access to your information and revoke it at any time. Contrast this with the current situation of having to update a copy of your address across dozens of external data silos which you have limited control over.
+
+\textbf{Free association of knowledge.} \sout{Imagine} you are visiting a Wedding in Spain with some wonderful people and dancing to a Song. In a PKG you can freely associate/link all of this information, just like your brain does. You then have multiple associative retrieval paths to remember the song, because it is connected to the people, the wedding, the location and the Spain trip. You can also freely associate any information with the song, for example, make notes, which is not possible on \gls{vendorlockin}ed data, that is coupled with the app, like Spotify.
+
+\textbf{Transclusion and bi-directional links.} \sout{Imagine} you have a file or website that you frequently quote from. Traditionally you would copy and paste the content, and have duplicates all over your workspace, without necessarily knowing where the information came from. In your PKG you can attach links to this information, specifying the location of the original. If the link is a pointer within your PKG, you can even update the content in any location and it will prompt you, asking if you want to update it in all other locations in real-time. Information in your PKG that is linked towards will show the locations referencing it.
+
+\sout{\textbf{Integrating external Data.} There are many browser extensions for saving and organizing bookmarks. Saving things should be as easy as clicking a button on any kind of information, be it a Term in a dictionary, a Book, an Article, or a Movie. In contrast to just saving the URL, a PKG would give the option to save structured Data about this Object, like Information about the author, who recommended it, etc.}
+
+% better title?
+\section{Current Limitations}
+The increasing difficulty of Personal Knowledge Management was already identified early in the 20th century \cite{Bush1945Memex, Engelbart1962AHI}. The suggested approaches at the time were hindered by unsurmountable technological hurdles, which have all but disappeared by now \cite{Davies2005Memex60}. Still, even today's Tools for PKM are not powerful enough to address information overload. Even worse, these tools have limitations that make them unfit candidates for lifelong Personal Knowledge Management:
+
+    \textbf{Proprietary technology and vendor lock-in.} They are based on proprietary technology. This causes vendor lock-in, which means the data stored can not be used in other tools without considerable switching costs. The user's data is sometimes even stored in data silos, meaning they do not have control over their data.
+
+    \textbf{Lack of structure and expressivity.} They are based on unstructured plain text and do not support structured knowledge, schema or semantics. This means integrating or collaborating with external knowledge is not possible. These characteristics have proven indispensable for Knowledge Management in Industry and Academics, however. 
+    
+    \textbf{Query and search algorithms.} A direct consequence of the previous points. Only structured information, like data stored in databases, supports query languages. These tools do not support query languages and rely on rolling their own search algorithms. This limits them to a single Information retrieval path: full-text search, with the user required to remember the exact keywords of what they are looking for.
+    
+    \textbf{Lack of open standards} Even though these tools want to enable lifelong Personal Knowledge Management, they are not based on open standards. Interoperability with other data formats and services is not guaranteed. User's data might not be portable to other formats if the tool shuts down.
+
+Open Standards for semantic Knowledge Graphs, called Semantic Web Technologies, are developed by the W3C. Theoretically, one could use Tools for Semantic Web Technologies to create PKGs and solve most of these limitations. Unfortunately, the tools based on Semantic Web Standards (SWSs) are notoriously hard to understand and use, even for computer scientist and programmers \cite{EasierRDF}. Expecting non-technical users to manage their personal knowledge with them is unrealistic.
+
+% be a little be more descriptive about your approach in the introduction. What makes it special so that the reader wants to read about it
+\section{Approach}
+To address the problems and limitations outlined in this chapter, we embrace the vision of a PKG Ecosystem. We establish that the creation of such an ecosystem is possible and beneficial, by outlining its structure and \sout{desirable features} scope. We argue that the data model for PKGs should be a data graph based on Semantic Web Technologies. Such a data model is developed and described in detail. Applications implementing the model will benefit from all the features developed for the Semantic Web. They will be able to express semantics, use external schema, and reasoning and have support for mature query languages. 
+
+Finally, we develop a prototypical implementation of the data model in the form of an interactive web application.
+
+% It is important to keep a data-centric approach in mind when talking about PKGs, as they should serve as the foundation for lifelong personal knowledge management. Even advances in technology like Computer-Brain Interfaces and Artificial Intelligence should not render PKGs obsolete.
+
+% \section{Structure}
+% The thesis is structured as follows.
+% \begin{description}
+%     \item[Chapter \ref{ch:preliminaries}] defines concepts used throughout the thesis.
+%     \item[Chapter \ref{ch:relatedwork}] explores the scientific context of this work.
+%     \item[Chapter \ref{ch:ecosystem}] 
+%     \item[Chapter \ref{ch:model}]
+%     \item[Chapter \ref{ch:markdown}]
+%     \item[Chapter \ref{ch:prototype}]
+%     \item[Chapter \ref{ch:conclusions}]
+% \end{description}
+
+% For explanations of commonly used terms please refer to the glossary
+% In chapter [Preliminaries] we go over basic terms used in the thesis. Chapter [PKG Ecosystem] analyses what an Ecosystem of Applications for PKGs needs to be capable of and compares it to current Personal Knowledge Management Tools. Chapter [PKG Model] presents a directed labeled Graph Data Model for PKGs based on SWS. This model is compatible with both text and databases. Chapter [Semantic Markdown] will explore an RDF extension to Markdown, to enable freely mixing structured and unstructured Information. In Chapter [UX POC] we present a proof of concept for an application that uses the proposed model and is focused on usability; requiring no technical expertise.

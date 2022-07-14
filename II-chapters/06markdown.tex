@@ -1,0 +1,124 @@
+\chapter{Semantic Markdown} \label{ch:markdown}
+
+% Kommt jetzt für mich überraschend. Dachte du meinst mit dem Kapitel eher son turtle md Mix. Ist mir so jetzt nicht klar, wie das auch mit dem Kram davor zusammenspielt. Vielleicht kommt das aber noch? Und: sollte man wirklich beides haben? MD in Semantic Web und Semantic Web in Markdown?  Erster Leseeindruck
+
+% Ist doch ein Turtle MD mix?
+% Ich denke das ist die einzige Möglichkeit die Fähigkeiten von einem Text Processor / note-taking tool zu integrieren. Und Thoughtstreams sind definitiv ein requirement. 
+
+% mir fehlt hier auch das Big Picture, das könntest du in einem weiteren, vorgelagerten Kapitel kurz erläutern. Wie ist die Grundarchitektur deiner App, welche Ein / Ausgabe-Formate gibt es, welche Teile spezifizierst / implementierst du, welche vorhandenen Teile nutzt du, welche Teile sind Zukunftsmusik?
+
+% Auch innerhalb dieses Kapitels fehlt mir irgendwie eine Übersicht. Wie hängen mehrere Markdown-Dateien (Pages?) zusammen und verlinken sich? Wie bilden sich diese auf Nodes im Graphen ab? Ist das dein Storage-, Daten- oder UI-Modell? Und ist wirklich gezeigt, dass damit alle Aspekte von RDF in Markdown abgebildet sind?
+
+% I agree with all the previous comments. Also, to motivate this chapter you have to properly link it to the general idea of PKGs.  My suggestion is that you explain that PKGs are composed of semi-structured knowledge (so, what you covered in the previous chapter) and unstructured knowledge (i.e., text, that you are addressing in this chapter. So the idea here is to add semantic annotations to unstructured knowledge to enrich the PKGs by adding explicit connections from the text to semantic concepts in the PKG. 
+
+Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Text gets transformed by prepending or enclosing it in special Characters like `\# * -` etc.
+
+\section{Markdown Flavors}
+
+Markdown although not standardised, is embraced by the Web Community and continuously extended. There are several Flavors (Github, CommonMark, etc.), which can be roughly separated into the following expressivity levels:
+
+\textbf{Basic Markdown} Includes mostly Text formatting:
+\begin{itemize}
+    \item \# Headings, ****Bold****, **Italic**, ~~~~Strikethrough~~~~, `Code`
+    \item Numbered and bulleted Lists
+    \item Images and Links as URL references
+\end{itemize}
+    
+\textbf{Extended Markdown} Includes advanced Formatting options:
+\begin{itemize}
+    \item Tables
+    \item Heading ID’s (for in-document navigation)
+    \item Syntax highlighted Code Blocks
+    \item Footnotes
+    \item Todos
+    \item Emoji
+    \item Highlighting
+    \item Sub- and Superscript
+    \item Table of Content
+    \item Callouts
+    \item Comments
+    \item Captions
+\end{itemize}
+    
+\textbf{“Hypertext Markdown”} Recently Note-Taking Tools have adopted an extension to Markdown Syntax, enabling toolwide Hyperlinks [Bear, Notion, Roam, LogSeq, Obsidian]. Text enclosed in certain special characters is automatically indexed as special connections between markdown files. These are rendered as links, mentions or embeds.
+
+\begin{itemize}
+    \item \verb|[[| gets converted to links to documents
+    \item \verb|((| links to a paragraph
+    \item \verb|{{| embeds documents or paragraphs
+    \item \verb|$$| LaTeX code
+    \item \verb|^^| Highlight Text
+\end{itemize}
+    
+    
+
+A similar appraoch to “Hypertext Markdown” could be used as a syntax for creating RDF triples in Markdown, which I will propose in the next section.
+
+\section{A Semantic Markdown extension (.mds?)}
+
+This takes the approach of Hyptertext markdown and adds semantic relationships to it. These semantic relationships are then manifested into the temporary Data Layer during runtime.
+
+The Syntax is invoked by wrapping the expressions in special characters. These Characters are typed twice, so they don’t get accidentaly triggered in the application. For the characters used, I looked at special characters easily reachable on both a physial  and digital ANSI Keyboard. I substracted the ones that are frequently used in other contexts, like \verb|** ~~ \\ !! ??|, to come up with the following list:
+\begin{itemize}
+    \item \verb|[[| link to IRI, similar to rdfs:seeAlso
+    \item \verb|((| embed title of a Note, similar to mention (without children)
+    \item \verb|{{| embed a Note or IRI (with children)
+    \item \verb|>>| link to external IRI
+    \item \verb|<<| embed of external IRI
+    \item \verb|&&|
+    \item \verb|%%|
+    \item \verb|::|
+    \item \verb|;;|
+\end{itemize}
+
+The syntax  to create RDF Properties with these characters could use a label for the link to render  in markdown, followed by turtle triples separated by a delimiter, a comma in this example. These Turtle Triples would automatically use the IRI to which the `<:note>` is attached to as their subject.
+
+\begin{verbatim}
+[[
+"This is the link label", 
+rdf:type rdfs:Resource, 
+rdfs:seeAlso <http://www.w3.org/2000/01/rdf-schema\#>
+]]
+\end{verbatim}
+
+Let us consider an Example of how this could look like in a Note:
+\begin{verbatim}
+# Notes on the RDF IRI "Sun"
+The Sun is the [["Star", rdf:type ex:Star]] at the center of 
+the [["Solar System", ex:location ex:Solar\_System]]. 
+It is a nearly perfect ball of hot plasma.
+\end{verbatim}
+
+
+\begin{verbatim}
+# Notes on the RDF IRI "Earth"
+Earth is the third [["planet", rdf:type ex:Planet]] 
+from the [["Sun", rdfs:seeAlso ex:Sun]] and 
+the only astronomical object known to harbor life.
+While large volumes of water can be found 
+throughout the [["Solar System", ex:location ex:Solar\_System]], 
+only Earth sustains liquid surface water.
+\end{verbatim}
+
+Would result in the following RDF inserted into the temporary data Layer:
+
+\begin{verbatim}
+ex:Sun rdf:type ex:Star
+ex:Sun ex:location ex:Solar\_System
+
+ex:Earth rdf:type ex:Planet
+ex:Earth rdfs:seeAlso ex:Sun
+ex:Sun ex:location ex:Solar\_System
+\end{verbatim}
+
+
+Embeds and Title Mentions can only be used as separate Paragraphs, and are rendered as the content or title of their reference.
+
+Conclusion
+
+I demonstrated how Semantic Markdown can be used to infer RDF Statements from plain Text through the use of a special Syntax. These RDF statements always connect to all the parents of the `<:note>` (recursively), by using the parents subjects for the inferred triples. This enables the triples to be present on all parent IRIs
+
+- great candidate for standardisation
+    - which special characters to use
+    - syntax inside the characters and delimiters
+- syntax for OWL inverseProperties etc. ?

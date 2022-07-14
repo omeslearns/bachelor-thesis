@@ -1,0 +1,49 @@
+\chapter{Preliminaries} \label{ch:preliminaries}
+This chapter provides definitions for concepts used throughout the thesis. We cover concepts related to knowledge graphs and semantic web technologies. For explanations of terms and phrases please refer to the glossary.
+
+\textbf{Note: this section is incomplete, for now please look these terms up online.}
+
+\section{Knowledge Graphs}
+
+\begin{itemize}
+    \item Graph
+    \item directed Graph
+    \item directed edge-labeled graph
+    \item Knowledge Graph
+    \item Personal Knowledge Graph
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{kg}
+    \caption[]{A Knowledge Graph}
+\end{figure}
+
+\section{Semantic Web Technologies}
+
+\begin{itemize}
+    \item RDF A Standard used to represent structured knowledge, through Relationships between Entitys. Can be interpreted as a directed labeled Graph
+    \item RDF Schema
+    \item TURTLE
+    \item OWL 
+    \item SPARQL Used to Query RDF Graphs
+    \item Ontologies/Vocabulary
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{rdf}
+    \caption[]{An RDF Graph}
+\end{figure}
+
+For more background on these concepts, we refer the reader to the primer on the subject by Hogan et al \cite{Hogan2021KG} and the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
+
+% comment: This is not an RDF graph. 
+
+% This picture is not correct in several ways: 
+
+% 1. In an RDF triple, properties are labels of the edges, not nodes themselves. So, in the RDF triple (Q9439, P22, Q157009) P22 is just the label of the edge, not a node. This also solves the problem that some of your edges do not have labels, which is not allowed in RDF. 
+
+% 2. The labels for properties like label_en and label_de is not the standard way of representing human-readable labels in RDF. For that we use rdfs:label, and it is ONE property, without distinction of the the language in the property. If you want to say that the value is in a specific language, then we use language-tagged literals … for example “Queen Victoria”@en. 
+
+% 3. It is a convention when plotting RDF graphs to use rectangles for depicting  literals, and ovals for IRIS 
