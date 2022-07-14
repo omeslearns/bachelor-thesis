@@ -88,82 +88,59 @@ The requirements for the backend are similar to the backends in use today.
 \section{PKM Tool Software landscape}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this Section we provide a detailed comparison of current personal knowledge management tools in the form of feature matrices. We have looked at more than 50 tools, and selected the most relevant and mature ones for comparison. We will analyse these tools in the light of the requirements and limitations outlined previously.
+In this section, we provide a detailed comparison of select current personal knowledge management tools. We have looked at more than 50 tools and selected the most mature tools associated with PKGs \cite{notion, obsidian, roam, logseq, remnote}. We provide tables outlining the properties of these tools and analyze them in light of the requirements and limitations outlined previously.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm01overview.png}
     \caption{PKM tool overview -- the software landscape}
-    \label{fig:fm01}
+    \label{fig:fm01overview}
 \end{table}
 
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
+Figure \ref{fig:fm01overview} shows a general overview of the software landscape. We can see that all of these tools are based on proprietary data formats. Most of them store data in the cloud to enable features like multi-platform sync and collaboration.
 
 
 \begin{table}[H]
     \centering
-    \includegraphics[width=\textwidth]{fm02features.png}
+    \includegraphics[width=\textwidth]{fm02workflows.png}
     \caption{PKM tool workflows -- what they can be used for}
-    \label{fig:fm02}
+    \label{fig:fm02workflows}
 \end{table}
 
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
+Figure \ref{fig:fm01overview} shows the workflows these tools enable. Most of the tools allow task management and journaling. features like password protected pages and flash cards are only supported by a select few. Notably Notion includes databases with views and filters.
 
 
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm03editing.png}
     \caption{PKM tool editing -- text processing capabilities}
-    \label{fig:fm03}
+    \label{fig:fm03editing}
 \end{table}
 
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
+Figure \ref{fig:fm03editing} shows the text editing capabilities of the different tools.
 
 
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm04relationships.png}
     \caption{PKM tool linking -- relationships between knowledge elements}
-    \label{fig:fm04}
+    \label{fig:fm04relationships}
 \end{table}
 
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
+Figure \ref{fig:fm04relationships} shows how the tools manage the granularity of their pages / blocks / entities and links between them. this concept is explained in more detail in chapter \ref{ch:model}.
 
 
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm05formats.png}
     \caption{PKM tool formats -- interoperability with file formats}
-    \label{fig:fm05}
+    \label{fig:fm05formats}
 \end{table}
 
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
-EXPLANATION OF THE FIGURE ABOVE \\
+Figure \ref{fig:fm05formats} shows the different file formats the tools are interoperable with.
 
+\section{Conclusion}
 
-As we can see from the table, most of these tools are built on text documents, with hierarchy and without transclusion…
+When we compare the features of these PKG tools, we notice that they already realize some of our outlined requirements. Almost all of them are centralized and support text editing, refactoring, bi-directional links, associating entities and transclusion. Notion even supports databases with views and filters. Multi-platform sync and version history are also either implemented or on their roadmap. What is missing then, are cloud drives, support for structured knowledge and the ability to integrate and query external knowledge. This is a consequence of these tools relying on proprietary data and storage models, instead of developing or adopting open standards.
 
-Notion is a notable example that enables Databases for the user…
-
-~~PKM putting everything into hierarchy makes free association impossible. This leads to copying of Information, with some of it outdated…~~
-
-\section{Analysis}
-
-None of the current Applications fulfill the outlined requirements. Most of them are based on Text Documents mixed with proprietary Databases and Storage Formats. The Knowledge is stored in Data Silos or Text Files with proprietary Syntax. Interoperability and Portability of the stored Knowledge is thus hindered by Vendor Lock-in.
-
-~~The Applications also do not support APIs for querying the internal Knowledge or integrating external Knowledge, semantics, reasoning, yada yada yada…~~
-
-% würde mir einen Absatz zum Storage Model wünschen. Was ist das, und eine Abgrenzung vom Data Model. Offene Fragen, ob es in deiner Thesis noch vorkommt oder nur das Data Model.
-The data and storage model are fundamental for PKGs, because they limit what you can store and express in it. The data model needs to be flexible; able to express and associate everything from atomic Entities (Terms, Concepts) to complex composite Entities (Projects, Sciencific Work). [Building Memex 60 years later] The proposal of such a model will be the topic of the next chapter.
-
-% was ist mit data-centric gemeint?
-With a Data Model based on open standards, PKGs should be data-centric, interoperable and portable. Date-centric means that data is separated from UI and presentation. Interoperable means it can read and write standard data formats. Portable means the data should work in any application designed for these standards. Applications will come and go operating on the data, but not changing the nature of the PKG. Even advances in technology like brain-computer Interfaces or Artificial Intelligence should not render your PKG obsolote, so it can be a lifelong Personal Knowledge Management Framework.
+The data and storage model are fundamental for PKGs, because they limit what you can store and express in it. The data model needs to be flexible; able to express and associate everything from atomic entities (Terms, Concepts) to complex composite entities (Projects, Sciencific Work) \cite{Davies2005Memex60}. The proposal of such a model will be the topic of the next chapter.
