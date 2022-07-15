@@ -11,20 +11,20 @@
 
 % I agree with all the previous comments. Also, to motivate this chapter you have to properly link it to the general idea of PKGs.  My suggestion is that you explain that PKGs are composed of semi-structured knowledge (so, what you covered in the previous chapter) and unstructured knowledge (i.e., text, that you are addressing in this chapter. So the idea here is to add semantic annotations to unstructured knowledge to enrich the PKGs by adding explicit connections from the text to semantic concepts in the PKG. 
 
-Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Text gets transformed by prepending or enclosing it in special Characters like `\# * -` etc.
+Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Text gets transformed by prepending or enclosing it in special Characters like \verb|\# * -| etc.
 
 \section{Markdown Flavors}
 
-Markdown although not standardised, is embraced by the Web Community and continuously extended. There are several Flavors (Github, CommonMark, etc.), which can be roughly separated into the following expressivity levels:
+Markdown although not standardized, is embraced by the web community and continuously extended. There are several flavors (Github, CommonMark, etc.), which can be roughly separated into the following expressivity levels:
 
-\textbf{Basic Markdown} Includes mostly Text formatting:
+\textbf{Basic Markdown.} Includes mostly Text formatting:
 \begin{itemize}
-    \item \# Headings, ****Bold****, **Italic**, ~~~~Strikethrough~~~~, `Code`
+    \item \# Headings, \textbf{bold}, \emph{italic}, \sout{strikethrough}, \verb|code|
     \item Numbered and bulleted Lists
     \item Images and Links as URL references
 \end{itemize}
     
-\textbf{Extended Markdown} Includes advanced Formatting options:
+\textbf{Extended Markdown.} Includes advanced Formatting options:
 \begin{itemize}
     \item Tables
     \item Heading ID’s (for in-document navigation)
@@ -40,25 +40,25 @@ Markdown although not standardised, is embraced by the Web Community and continu
     \item Captions
 \end{itemize}
     
-\textbf{“Hypertext Markdown”} Recently Note-Taking Tools have adopted an extension to Markdown Syntax, enabling toolwide Hyperlinks [Bear, Notion, Roam, LogSeq, Obsidian]. Text enclosed in certain special characters is automatically indexed as special connections between markdown files. These are rendered as links, mentions or embeds.
+\textbf{Hypertext Markdown.} Recently note-taking tools have adopted an extension to markdown syntax, enabling toolwide hyperlinks \cite{notion, obsidian, roam,logseq}. Text enclosed in certain special characters is automatically indexed as special connections between markdown files. These are rendered as links, mentions or embeds.
 
 \begin{itemize}
     \item \verb|[[| gets converted to links to documents
     \item \verb|((| links to a paragraph
     \item \verb|{{| embeds documents or paragraphs
-    \item \verb|$$| LaTeX code
-    \item \verb|^^| Highlight Text
+    \item \verb|$$| gets converted to \LaTeX
+    \item \verb|^^| highlights text
 \end{itemize}
     
     
 
-A similar appraoch to “Hypertext Markdown” could be used as a syntax for creating RDF triples in Markdown, which I will propose in the next section.
+A similar appraoch to “Hypertext Markdown” could be used as a syntax for creating RDF triples in Markdown, which we will propose in the next section.
 
 \section{A Semantic Markdown extension (.mds?)}
 
 This takes the approach of Hyptertext markdown and adds semantic relationships to it. These semantic relationships are then manifested into the temporary Data Layer during runtime.
 
-The Syntax is invoked by wrapping the expressions in special characters. These Characters are typed twice, so they don’t get accidentaly triggered in the application. For the characters used, I looked at special characters easily reachable on both a physial  and digital ANSI Keyboard. I substracted the ones that are frequently used in other contexts, like \verb|** ~~ \\ !! ??|, to come up with the following list:
+The Syntax is invoked by wrapping the expressions in special characters. These Characters are typed twice, so they don’t get accidentaly triggered in the application. For the characters used, we looked at special characters easily reachable on both a physial  and digital ANSI Keyboard. we substracted the ones that are frequently used in other contexts, like \verb|** ~~ \\ !! ??|, to come up with the following list:
 \begin{itemize}
     \item \verb|[[| link to IRI, similar to rdfs:seeAlso
     \item \verb|((| embed title of a Note, similar to mention (without children)
@@ -71,7 +71,7 @@ The Syntax is invoked by wrapping the expressions in special characters. These C
     \item \verb|;;|
 \end{itemize}
 
-The syntax  to create RDF Properties with these characters could use a label for the link to render  in markdown, followed by turtle triples separated by a delimiter, a comma in this example. These Turtle Triples would automatically use the IRI to which the `<:note>` is attached to as their subject.
+The syntax  to create RDF Properties with these characters could use a label for the link to render  in markdown, followed by turtle triples separated by a delimiter, a comma in this example. These Turtle Triples would automatically use the IRI to which the \verb|<:note>| is attached to as their subject.
 
 \begin{verbatim}
 [[
@@ -112,13 +112,9 @@ ex:Sun ex:location ex:Solar\_System
 \end{verbatim}
 
 
-Embeds and Title Mentions can only be used as separate Paragraphs, and are rendered as the content or title of their reference.
+Embeds and title mentions can only be used as separate Paragraphs, and are rendered as the content or title of their reference.
 
-Conclusion
+\section{Outlook}
 
-I demonstrated how Semantic Markdown can be used to infer RDF Statements from plain Text through the use of a special Syntax. These RDF statements always connect to all the parents of the `<:note>` (recursively), by using the parents subjects for the inferred triples. This enables the triples to be present on all parent IRIs
+We demonstrated how Semantic Markdown can be used to infer RDF Statements from plain Text through the use of a special Syntax. These RDF statements always connect to all the parents of the \verb|<:note>| (recursively), by using the parents IRI as the subject for the inferred RDF triples. This enables the triples to be present on all parent IRIs
 
-- great candidate for standardisation
-    - which special characters to use
-    - syntax inside the characters and delimiters
-- syntax for OWL inverseProperties etc. ?

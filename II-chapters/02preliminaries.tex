@@ -38,11 +38,11 @@ The definition of KGs remains contentious \cite{Hogan2021KG,commonsenseKG}. To p
 
 We define a \textbf{Personal Knowledge Graph} as a KG that represents knowledge relevant or related to the person in question.
 
-A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices and edges have labels, and the "is" label represents the special typing label.
+A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices and edges have labels, and "type" label points from individuals (white nodes) to classes (blue nodes).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{kg}
+    \includegraphics[width=0.8\textwidth]{kg}
     \caption[]{A Knowledge Graph}
     \label{fig:kg}
 \end{figure}
@@ -71,11 +71,11 @@ Multiple RDF Statements thus form a graph. This motivates the following
     Let $I$ be a set of IRIs, $B$ a set of blank nodes, and $L$ a set of RDF literals. A tuple $\displaystyle (s,p,o) \in (U \cup B) \times U \times (U \cup B \cup \L)$ is called an \textbf{RDF triple}, where s is the subject, p is the predicate and o is the object. A set of RDF triples is called an \textbf{RDF Graph}.
 \end{definition}
 
-A visual example of such an RDF Graph can be seen in Figure \ref{fig:rdfgraph}.
+A visual representation of an RDF Graph can be seen in Figure \ref{fig:rdfgraph}. IRIs are simplified and abbreviated. Green rectangles represent literals. Notice how node and arc lables are not necessarily human readable, as they are IRIs. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{rdf}
+    \includegraphics[width=0.8\textwidth]{rdfgraph}
     \caption[]{An RDF Graph}
     \label{fig:rdfgraph}
 \end{figure}
