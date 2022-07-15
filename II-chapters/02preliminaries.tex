@@ -6,10 +6,14 @@ This chapter provides definitions for concepts used throughout the thesis. These
 
 \begin{definition}[Graph]
     A \textbf{graph} is a tuple $G = (V, E)$, where $V$ is a set of \textbf{vertices} and $\displaystyle E\subseteq \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is a set of \textbf{edges}.
+
+    Vertices are also called nodes, or points. Edges are sometimes called links or relationships.
 \end{definition}
 
 \begin{definition}[Directed graph]
     A \textbf{directed graph} is a tuple $G = (V,E)$, where $V$ is a set of vertices and $\displaystyle E\subseteq \left\{(x,y)\mid (x,y)\in V^{2}\;{\textrm {and}}\;x\neq y\right\}$ is a set of \textbf{directed edges}.
+
+    Directed edges are also called arcs.
 \end{definition}
 
 \begin{definition}[Labeled graphs]
@@ -17,6 +21,8 @@ This chapter provides definitions for concepts used throughout the thesis. These
     A \textbf{vertex-labeled graph} is a graph that has a labelling function $l_V : V \rightarrow Y$, where $Y$ is a set of vertex labels.
     A \textbf{labeled graph} is a graph that is both edge-labeled and vertex-labeled.
 \end{definition}
+
+
 
 \begin{definition}[Multigraph]
     A \textbf{multigraph} is a tuple $\displaystyle G=(V,E,\phi )$, where $V$ is a set of vertices, $E$ is a set of edges and $\displaystyle \phi :E\to \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is an incidence function mapping every edge to an unordered pair of vertices.
@@ -49,7 +55,7 @@ A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices
 
 \section{Semantic Web}
 
-The semantic web technologies that will be extensively used in this thesis include the Resource Description Framework (RDF) and the Terse RDF Triple Language (Turtle).
+The semantic web technologies that will be used extensively in this thesis include the Resource Description Framework (RDF) and the Terse RDF Triple Language (Turtle).
 
 RDF is a data model standard designed by the W3C. It can be used to represent and exchange graph data on the web. RDF is a directed edge-labeled graph composed of triple statements. A triple consists of a subject, predicate and object. Three different RDF Terms can appear in a statement: Internationalized Resource Identifiers (IRIs), blank nodes and literals. IRIs refer to globally unique resources, blank nodes represent resources without identifiers, and literals are plain data values. The position of these terms inside of an RDF statement is limited as follows:
 
@@ -74,7 +80,7 @@ A visual example of such an RDF Graph can be seen in Figure \ref{fig:rdfgraph}.
     \label{fig:rdfgraph}
 \end{figure}
 
-Turtle is a serialization and file format for RDF. It provides an easy-to-read syntax for RDF statements. Listing \ref{lst:turtle} shows an example of turtle's syntax.
+Turtle is a serialization and file format for RDF. It provides an easy-to-read syntax for RDF triples. It allows  Listing \ref{lst:turtle} shows an example of turtle's syntax.
 
 \
 

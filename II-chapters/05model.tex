@@ -3,23 +3,36 @@
 % @Omes Baltes I am missing the connection between the PKG elements and their connection to RDF. This could be shown in a picture
 % I put a picture taken from Ivo where he shows the connection between ontologies and the KG. This is not exactly what I want, I want a picture that shows a page in a PKG and how elements of that page are my to the actual KG which uses RDF/S 
 
-% @linearität: ist vielleicht weil wir Menschen die Welt als zeitlich-linearen Fluß erleben und Sprache ebenso linear ist, also eine sehr naheliegende Form
-
 % @text vs graph: ist so ein wenig Äpfel mit Birnen vergleichen, würde da insgesamt mehr ins Detail gehen. Beispiel: Text Dokumente sind hochgradig portabel, man kann sie mit fast beliebigen Programmen öffnen und bearbeiten. Dieselbe Strength wirst du nie mit Graphen erreichen.
 
-Information is predominantly stored as a combination of language, symbols and images, presented in a linear arrangement. Examples include books, videos and digital documents. This linear arrangement provides a sense of chronology and orientation for information retrieval. An important realisation with this kind of presentation, is that it can be interpreted as an ordered tree. A book can be seen as the root node, with edges to the chapters, headings, pages and finally the content as leaf nodes. Similar a TV Show is separated into Seasons, Episodes, Scenes and Cuts. 
+Information is predominantly stored as a combination of language, symbols and images, presented in a linear arrangement. Examples include books, videos and digital documents. This linear arrangement provides a sense of chronology and orientation for information retrieval. As the entire human experience is based on a linear flow of time, this seems to be a natural approach for arranging information too. It also allows every consumer of the information to experience it in the same way. However, information being constrained to a linear arrangement is not always optimal. Sometimes one wants to get an overview of a topic as quickly as possible or follow an information trail based on relevance or personal interest. For cases like this spatial arranged information and interactive media are optimal, where you can instantly see the big picture and zoom in and out on information. Consider the example of diagrams, maps or websites like Wikipedia. This non-linear arrangement no longer results in consumers having the same experience and the sense of orientation might be lost. In this chapter, we will argue that with today's technology it is possible to combine the benefits of both these historical approaches, by leveraging a flexible data model and interfaces that can provide different views and visualizations of information. 
 
-In Computer and Information Science more powerful ways to store knowledge have been developed. Structured and semi-structured Information is stored with XML, JSON, Databases etc. to great effect. There is no longer a sense of chronology or orientation, but these technologies enable powerful features like querying, search, (insert examples…) which can also be used for information retrieval. These advanced Data Models can be also be interpreted as a Graph.
+\section{Structured and Unstructured Information}
 
-A Graph is thus a very flexible, powerful and interoperable way to store Information and Knowledge (conjecture?). If designed correctly, a graph could leverage the strenghts of text documents and database technologies, while acting as the base for the PKG Ecosystem.
+An important realization with a linear presentation of information is that it can be interpreted as an ordered tree. A text document can be seen as the root node, with edges to the chapters, headings, pages and finally the content as leaf nodes. Similar a TV Show is separated into seasons, episodes, scenes and cuts. However, a tree is just a special case of a graph, so we can conclude that this type of linear unstructured information can also be modeled with a graph. A visual example of this is shown in Figure \ref{fig:treetograph}.
 
-\section{Granularity of Entities}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{texttograph}
+\caption{representing linear information as text (left) and graph (right)}
+\label{fig:treetograph}
+\end{figure}
 
-An important consideration is the granularity of the Knowledge represented in a Knowledge Graph. 
+In computer science more powerful ways to store knowledge have been developed. Structured and semi-structured Information is stored with XML, JSON, Databases etc. to great effect. There is no longer a sense of chronology or orientation, but these technologies enable powerful features like querying, search, schemas and transclusion. These advanced Data Models can also be be interpreted as a Graph.
 
-An Entity is... It can be represented as a file, node, block, row, paragraph, Word, Page, etc.
+A Graph is thus a very flexible, powerful and interoperable data model for storing information and knowledge. If designed correctly, a graph could leverage the strength of both unstructured text documents and structured database technologies, while serving as the data model for the PKG Ecosystem.
 
-This granularity of Entities is what defines what can be said, what can be linked, and what can be queried.
+\section{Granularity of Linkable Entities}
+
+An important consideration when talking about data and storage models is the granularity of the data that can be represented. This granularity is essential, because it defines what knowledge can be expressed and associated in a PKG. As outlined in chapter \ref{ch:ecosystem}, we require a data model that is flexible and powerful, able to express atomic and complex concepts and freely associate them.
+
+We investigate the granularity of the smallest entities that different data and storage models allow us to associate with each other. Depending on the context these entities have different names. For files, they are called documents, pages, paragraphs or blocks, for databases they are called rows or cells and for graphs they are called nodes, vertices, entities, or resources.
+
+We will adopt the term knowledge element for the smallest linkable data element in this context \cite{Davies2005Memex60}. In chapter \ref{ch:ecosystem} we have seen, that current PKG tools are based on proprietary formats, most often based on text files or documents. The knowledge elements in this case are documents or pages. 
+
+
+
+
 
 We will sometimes also refer to these entities as knowledge elements, elements or nodes.
 
