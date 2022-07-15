@@ -1,17 +1,44 @@
 \chapter{Preliminaries} \label{ch:preliminaries}
-This chapter provides definitions for concepts used throughout the thesis. We cover concepts related to knowledge graphs and semantic web technologies. For explanations of terms and phrases please refer to the glossary.
-
-\textbf{Note: this section is incomplete, for now please look these terms up online.}
-
-\section{Knowledge Graphs}
+This chapter provides definitions for concepts used throughout the thesis. For descriptions of terms and phrases please refer to the glossary.
 
 \begin{itemize}
-    \item Graph
-    \item directed Graph
-    \item directed edge-labeled graph
-    \item Knowledge Graph
-    \item Personal Knowledge Graph
+    \item Knowledge base
+    \item knowledg graph 
+    \item RDF 
+    \item TURTLE
 \end{itemize}
+
+\begin{definition}[Graph]
+    A \textbf{graph} is a tuple $G = (V, E)$, where $V$ is a set of \textbf{vertices} and $\displaystyle E\subseteq \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is a set of \textbf{edges}.
+\end{definition}
+
+\begin{definition}[Directed graph]
+    A \textbf{directed graph} is a tuple $G = (V,E)$, where $V$ is a set of vertices and $\displaystyle E\subseteq \left\{(x,y)\mid (x,y)\in V^{2}\;{\textrm {and}}\;x\neq y\right\}$ is a set of \textbf{directed edges}.
+\end{definition}
+
+\begin{definition}[Labeled graphs]
+    An \textbf{edge-labeled graph} is a graph that has a labelling function $l_E : E \rightarrow X$, where $X$ is a set of edge labels.
+    A \textbf{vertex-labeled graph} is a graph that has a labelling function $l_V : V \rightarrow Y$, where $Y$ is a set of vertex labels.
+    A \textbf{labeled graph} is a graph that is both edge-labeled and vertex-labeled.
+\end{definition}
+
+\begin{definition}[Multigraph]
+    A \textbf{multigraph} is a tuple $\displaystyle G=(V,E,\phi )$, where $V$ is a set of vertices, $E$ is a set of edges and $\displaystyle \phi :E\to \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is an incidence function mapping every edge to an unordered pair of vertices.
+\end{definition}
+
+\begin{remark}
+    These definitions can be combined to get a directed labeled multigraph.
+\end{remark}
+
+
+\includegraphics[width=0.7\textwidth]{defKG.png}
+\begin{definition}[Knowledge Graph]
+    A \textbf{Knowledge Graph} is a directed labeled multigraph.
+\end{definition}
+
+\begin{remark}
+    The definition of a KG remains contentious \cite{Hogan2021KG,commonsenseKG}.
+\end{remark}
 
 \begin{figure}[H]
     \centering
@@ -19,24 +46,13 @@ This chapter provides definitions for concepts used throughout the thesis. We co
     \caption[]{A Knowledge Graph}
 \end{figure}
 
-\section{Semantic Web Technologies}
-
-\begin{itemize}
-    \item RDF A Standard used to represent structured knowledge, through Relationships between Entitys. Can be interpreted as a directed labeled Graph
-    \item RDF Schema
-    \item TURTLE
-    \item OWL 
-    \item SPARQL Used to Query RDF Graphs
-    \item Ontologies/Vocabulary
-\end{itemize}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{rdf}
     \caption[]{An RDF Graph}
 \end{figure}
 
-For more background on these concepts, we refer the reader to the primer on the subject by Hogan et al \cite{Hogan2021KG} and the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
+% For more background on these concepts, we refer the reader to the primer on the subject by Hogan et al \cite{Hogan2021KG} and the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
 
 % comment: This is not an RDF graph. 
 
