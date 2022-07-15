@@ -1,13 +1,13 @@
 \chapter{PKG Ecosystem} \label{ch:ecosystem}
 
-Kickstarting the development of a PKG ecosystems is a prerequisite for realizing the vision of PKGs. The PKG ecosystem would consist of all the technologies, protocols and models that enable individuals to interact with their PKGs. Apart from enabling personal knowledge management, a PKG ecosystem could also address other problems in our technology landscape. Concerns about data silos, vendor lock-in and privacy are increasingly brought up in research and politics \cite{missingCitation}. Considering the examples in chapter \ref{ch:introduction} we believe a PKG ecosystem is a promising approach to these problems.
+Kickstarting the development of a PKG ecosystems is a prerequisite for realizing the vision of PKGs. The PKG ecosystem would consist of all the technologies, protocols and models that enable individuals to interact with their PKGs. Apart from enabling personal knowledge management, a PKG ecosystem could also address other problems in our technology landscape. Concerns about data silos, vendor lock-in and privacy are increasingly brought up in research and politics. Considering the examples in chapter \ref{ch:introduction} we believe a PKG ecosystem is a promising approach to these problems.
 
 We group the PKG ecosystem into three areas, like tech stacks in the industry:
 % include a figure of this structure
 
 \begin{itemize}
     \item Data model
-    \item Backend and Protocols
+    \item Backend and protocols
     \item Applications
 \end{itemize}
 
@@ -36,14 +36,14 @@ For each of the proposed categories, we list the essential ideas that we deem re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Data model}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Centralization.} All of the data in a PKG needs to be accessible in one place. This approach corresponds to a trend in operating systems search engines. Originally files, mails, calendars, bookmarks, and notes were coupled with their apps data silos and search. The modern approach is to have a single quick search that accesses data from all types of apps present on your PC, providing a centralized retrieval path.
+ 
+\textbf{Centralization.} All of the data in a PKG needs to be accessible in one place. This approach corresponds to a trend in operating system search engines. Originally files, mails, calendars, bookmarks, and notes were coupled with their apps data silos and search. The modern approach is to have a single quick search that accesses data from all types of apps present on your PC, providing a centralized retrieval path.
 
 \textbf{Free association of knowledge elements.} Our brain is able to freely associate any thought, without worrying about the type, category or hierarchy. We can associate the song we hear at a wedding, with the people, location, dance and food. Technology we use today, creates artificial partitions on our knowledge because it is stored in data silos. Interoperability is hindered by vendor lock-in. We are unable to connect our media, contacts, location and calendars. This limits our ability to associatively organize and express knowledge, and the number of paths available to retrieve it.
 
-\textbf{Knowledge types and semantics.} A PKG needs to be able to store structured, semi- and unstructured Knowledge. Unstructured knowledge is data without metadata, e.g., text or images. Semi-structured knowledge includes metadata and structured knowledge is typed and based on schemata, e.g., database entities. Unstructured knowledge is quickly generated, like  a "thoughtsream" captured as a note or voice memo. Structured knowledge takes time to generate, organize and enrich, because types and schmema need to be considered for every entity. 
+\textbf{Knowledge types and semantics.} A PKG needs to be able to store structured, semi- and unstructured Knowledge. Unstructured knowledge is data without metadata, e.g., text or images. semi-structured knowledge includes metadata and structured knowledge is typed and based on schemata, e.g., database entities. Unstructured knowledge is quickly generated, like  a "thoughtsream" captured as a note or voice memo. Structured knowledge takes time to generate, organize and enrich, because types and schema need to be considered for every entity. 
 
-\textbf{Transclusion.} Also known as embeds or components, transclusion describes the ability for the same data to appear in several places. This is enabled by including data by reference, rather than duplicating it. For example, transclusion enables multiple documents that use the same paragraph to be updated as soon as the paragragh is changed in any location. It is a very powerful concept, that is barely used by non-technical people, where copy and pasting data is the norm.
+\textbf{Transclusion.} Also known as embeds or components, transclusion describes the ability for the same data to appear in several places. This is enabled by including data by reference, rather than duplicating it. For example, transclusion enables multiple documents that use the same paragraph to be updated as soon as the paragragh is changed in any location. It is a very powerful concept that is barely used by non-technical people, where copy and pasting data is the norm.
 
 \textbf{Based on open standards.} A PKG data model based on open standards provides portability and interoperability. We argue this is essential for knowledge work because it enables integrating and extracting data from diverse data sources.
 
@@ -57,24 +57,24 @@ These requirements apply to applications for personal knowledge management.
 
 \textbf{Views and filters.} PKGs will potentially store massive amounts of knowledge, so apps working with them need to provide filters to limit the complexity and volume of data shown. Different visualizations like interactive graphs, tables, galleries, and boards aided by filters can be used to present and navigate relevant information in a digestible way.
 
-\textbf{Flexible refactoring.} changes of any magnitude to the schema, entities, relationships, and views in a PKG need to be frictionless and quick. This allows smooth refactoring of unstructured Knowledge into structured Knowledge.
+\textbf{Flexible refactoring.} Changes of any magnitude to the schema, entities, relationships, and views in a PKG need to be frictionless and quick. This allows smooth refactoring of unstructured Knowledge into structured Knowledge.
 
 \textbf{External knowledge.} Apps should provide features for integrating external knowledge. Structured external knowledge should be searchable and queryable. For semi- and unstructured knowledge, source capture and transclusion are considerations. When importing external knowledge, prompts and filters should be available to filter relevant knowledge.
     
-\textbf{Bi-directional Links} The internet enables unidirectional links between websites. With bi-directional links, any site would show all sites that link to it. They have not been included, due to vandalism concerns. For moderated networks like wikis or personal knowledge graphs, vandalism is not a concern and bi-directional links are established as useful features.
+\textbf{Bi-directional links.} The internet enables unidirectional links between websites. With bi-directional links, any site would show all sites that link to it. They have not been included, due to vandalism concerns. For moderated networks like wikis or personal knowledge graphs, vandalism is not a concern and bi-directional links are established as useful features.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Backend}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The requirements for the backend are similar to the backends in use today.
 
-\textbf{Multiplatform Sync} PKGs should be available on any platform and sync changes between devices.
+\textbf{Multiplatform Sync.} PKGs should be available on any platform and sync changes between devices.
 
-\textbf{Cloud Drive for Files} Most current PKM tools only allow for import and export of files. Editing, annotating or opening the files in other programs is not possible, which is a severe limitation. A PKG needs to provide or integrate with a cloud drive to access and edit files in real-time. This way files can also be freely associated with other data in the PKG.
+\textbf{Cloud Drive for Files.} Most current PKM tools only allow for import and export of files. Editing, annotating or opening the files in other programs is not possible, which is a severe limitation. A PKG needs to provide or integrate with a cloud drive to access and edit files in real-time. This way files can also be freely associated with other data in the PKG.
 
-\textbf{Version History} changes need to be backed up and reversible.
+\textbf{Version History.} changes need to be backed up and reversible.
 
-\textbf{Protocols and APIs} The backend should be compliant with protocols that enable access and querying of the storage model.
+\textbf{Protocols and APIs.} The backend should be compliant with protocols that enable access and querying of the storage model.
 
 
 
@@ -83,7 +83,7 @@ The requirements for the backend are similar to the backends in use today.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{PKM Tool Software landscape}
+\section{Current PKM Tools}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this section, we provide a detailed comparison of select current personal knowledge management tools. We have looked at more than 50 tools and selected the most mature tools associated with PKGs \cite{notion, obsidian, roam, logseq, remnote}. We provide tables outlining the properties of these tools and analyze them in light of the requirements and limitations outlined previously.
@@ -105,7 +105,7 @@ Figure \ref{fig:fm01overview} shows a general overview of the software landscape
     \label{fig:fm02workflows}
 \end{table}
 
-Figure \ref{fig:fm02workflows} shows the workflows these tools enable. Most of the tools allow task management and journaling. features like password protected pages and flash cards are only supported by a select few. Notably, only Notion includes databases with views and filters.
+Figure \ref{fig:fm02workflows} shows the workflows these tools enable. Most of the tools allow task management, journaling, and collaboration. Notably, only Notion includes databases with views and filters.
 
 \begin{table}[H]
     \centering
@@ -120,23 +120,23 @@ Figure \ref{fig:fm03editing} shows the text editing capabilities of the differen
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm04formats.png}
-    \caption{PKM tool linking -- relationships between knowledge elements}
+    \caption{PKM tool formats -- interoperability with file formats}
     \label{fig:fm04formats}
 \end{table}
 
-Figure \ref{fig:fm04formats} shows how the tools manage the granularity of their pages / blocks / entities and links between them. this concept is explained in more detail in chapter \ref{ch:model}.
+Figure \ref{fig:fm05relationships} shows the different file formats the tools are interoperable with.
 
 
 \begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{fm05relationships.png}
-    \caption{PKM tool formats -- interoperability with file formats}
+    \caption{PKM tool linking -- relationships between knowledge elements}
     \label{fig:fm05relationships}
 \end{table}
 
-Figure \ref{fig:fm05relationships} shows the different file formats the tools are interoperable with.
+Figure \ref{fig:fm04formats} shows how the tools manage the granularity of their pages, blocks or entities and how they link between them. This concept is explained in more detail in chapter \ref{ch:model}.
 
-\section{Conclusion}
+\section{Comparison}
 
 When we compare the features of these PKG tools, we notice that they already realize some of our outlined requirements. Almost all of them are centralized and support text editing, refactoring, bi-directional links, associating entities and transclusion. Notion even supports databases with views and filters. Multi-platform sync and version history are also either implemented or on their roadmap. What is missing then, are cloud drives, support for structured knowledge and the ability to integrate and query external knowledge. This is a consequence of these tools relying on proprietary data and storage models, instead of developing or adopting open standards.
 

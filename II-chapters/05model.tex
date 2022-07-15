@@ -5,37 +5,37 @@
 
 % @text vs graph: ist so ein wenig Äpfel mit Birnen vergleichen, würde da insgesamt mehr ins Detail gehen. Beispiel: Text Dokumente sind hochgradig portabel, man kann sie mit fast beliebigen Programmen öffnen und bearbeiten. Dieselbe Strength wirst du nie mit Graphen erreichen.
 
-Information is predominantly stored as a combination of language, symbols and images, presented in a linear arrangement. Examples include books, videos and digital documents. This linear arrangement provides a sense of chronology and orientation for information retrieval. As the entire human experience is based on a linear flow of time, this seems to be a natural approach for arranging information too. It also allows every consumer of the information to experience it in the same way. However, information being constrained to a linear arrangement is not always optimal. Sometimes one wants to get an overview of a topic as quickly as possible or follow an information path based on relevance or personal interest. For cases like this spatial arranged information and interactive media are optimal, where you can instantly see the big picture and zoom in and out on information. Consider the example of diagrams, maps or websites like Wikipedia. This non-linear arrangement no longer results in consumers having the same experience and the sense of orientation might be lost. In this chapter, we will argue that with today's technology it is possible to combine the benefits of both these historical approaches, by leveraging a flexible data model and interfaces that can provide different views and visualizations of information. 
+Information is predominantly stored as a combination of language, symbols and images, presented in a linear arrangement. Examples include books, videos and digital documents. This linear arrangement provides a sense of chronology and orientation for information retrieval. As the entire human experience is based on a linear flow of time, this seems to be a natural approach for arranging information too. It also allows every consumer of the information to experience it in the same way. However, information being constrained to a linear arrangement is not always optimal. Sometimes one wants to get an overview of a topic as quickly as possible or follow an information path based on relevance or personal interest. For cases like this spatial arranged information and interactive media are optimal, where you can instantly see the big picture and zoom in and out on information. Consider the example of diagrams, maps or websites like Wikipedia. This non-linear arrangement no longer results in consumers having the same experience and the sense of orientation might be lost. In this chapter, we will argue that with today's technology it is possible to combine the benefits of both these historical approaches by leveraging a flexible data model and interfaces that can provide different views and visualizations of information. 
 
 \section{Interpreting Linear Text as a Graph}
 
-An important realization with a linear presentation of information is that it can be interpreted as an ordered tree. A text document can be seen as the root node, with edges to the chapters, headings, pages and finally the content as leaf nodes. Similar a TV Show is separated into seasons, episodes, scenes and cuts. However, a tree is just a special case of a graph, so we can conclude that this type of linear unstructured information can also be modeled with a graph. A visual example of this is shown in Figure \ref{fig:texttotree}.
+An important realization with a linear presentation of information is that it can be interpreted as an ordered tree. A text document can be seen as the root node, with edges to the chapters, headings, pages and finally the content as leaf nodes. Similar a TV Show is separated into seasons, episodes, scenes and cuts. However, a tree is just a special case of a graph, so we can conclude that this type of linear unstructured information can also be modeled with a graph. Visual examples of this appraoch are shown in Figure \ref{fig:texttotree}, for the ordered tree. In Figure \ref{fig:ninkrdf} we show the Interface of a PKG tool (the prototype we developed) side-by-side with how its data would be represented in an RDF graph.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{texttotree}
-\caption{representing linear information as text (left) and ordered tree (right)}
+\includegraphics[width=\textwidth]{texttotree}
+\caption{Representing linear information as text (left) and ordered tree (right)}
 \label{fig:texttotree}
 \end{figure}
 
-In computer science, more powerful ways to store information have been developed. Structured and semi-structured Information is stored with XML, HTML, JSON, Databases etc. to great effect. There is no longer a sense of chronology or orientation, but these technologies enable powerful features like querying, search, schemas and transclusion. These advanced data models can also be interpreted as a Graph.
+In computer science, more powerful ways to store information have been developed. Structured and semi-structured information is stored with XML, HTML, JSON, Databases etc. to great effect. There is no longer a sense of chronology or orientation, but these technologies enable powerful features like querying, search, schemas and transclusion. These advanced data models can also be interpreted as a Graph.
 
-A Graph is thus a very flexible, powerful and interoperable data model for storing information and knowledge. If designed correctly, a graph could leverage the strength of both unstructured text documents and structured database technologies, while serving as the data model for the PKG Ecosystem.
+A graph is thus a very flexible, powerful and interoperable data model for storing information and knowledge. If designed correctly, a graph could leverage the strength of both unstructured text documents and structured database technologies, while serving as the data model for the PKG ecosystem.
 
 \section{Data and Storage Model}
 
-An important consideration when talking about data and storage models is the granularity of the data that can be represented. This granularity is essential, because it defines what knowledge can be expressed and associated in a PKG. As outlined in chapter \ref{ch:ecosystem}, we require a data model that is flexible and powerful, able to express atomic and complex concepts and freely associate them.
+An important consideration, when talking about data and storage models, is the granularity of the data that can be represented. This granularity is essential, because it defines what knowledge can be expressed and associated in a PKG. As outlined in chapter \ref{ch:ecosystem}, we require a data model that is flexible and powerful, able to express atomic and complex concepts and freely associate them.
 
-We investigate the granularity of the smallest entities that different data and storage models allow us to associate with each other. Depending on the context these entities have different names. For files, they are called documents, pages, paragraphs or blocks, for databases they are called rows or cells and for graphs they are called nodes, vertices, entities, or resources. We will adopt the term knowledge element for the smallest linkable data element in this context \cite{Davies2005Memex60}. 
+We investigate the granularity of the smallest entities that different data and storage models allow us to associate with each other. Depending on the context these entities have different names. For files, they are called documents, pages, paragraphs or blocks, for databases they are called rows or cells and for graphs they are called nodes, vertices, entities, or resources. We adopt the term knowledge element for the smallest linkable data element in this context \cite{Davies2005Memex60}. 
 
-In chapter \ref{ch:ecosystem} we saw that current PKG tools are based on proprietary formats, most often based on text files. The knowledge elements in this case are documents or pages. Even though these tools can link to paragraphs, these paragraphs are bound to the document. Each paragraph can only belong to one document, and each document can only belong in one folder in the file system. If the document or folder is deleted, all paragraphs inside are also deleted, turning all links to those elements into null pointers. This means that in practice text files are limited to only linking to other documents. To model atomic concepts, each concept would need to be a separate document. This approach would be similar to RDF Graphs, except that instead of IRIs you were linking actual files. This would be a performance and maintenance nightmare. These limitations with links between file hierarchies rule out text files as the storage model for PKGs.
+In chapter \ref{ch:ecosystem} we saw that current PKG tools are based on proprietary formats, most often based on text files. The knowledge elements in this case are documents or pages. Even though these tools can link to paragraphs, these paragraphs are bound to the document. Each paragraph can only belong to one document, and each document can only belong in one folder in the file system. If the document or folder is deleted, all paragraphs inside are also deleted, turning all links to those elements into null pointers. This means that in practice text files are limited to only linking to other documents. To model atomic concepts, each concept would need to be a separate document. This approach would be similar to RDF graphs, except that instead of IRIs you were linking actual files. This would be a performance and maintenance nightmare. These limitations with links between file hierarchies rule out text files as the storage model for PKGs.
 
-Considering this, we choose RDF Graphs as the data model and a graph database as the storage model for PKGs. RDF Graphs are an open standard and already support a wide array of mature technologies, like query languages, description logic, and external schema that will be of use for PKGs \cite{sparql, owl}. Graph databases are chosen because they are more performant when doing path traversals or recursive querys to navigate associated knowledge. Structured knowledge will be implemented with the RDF data model. Semi- and unstructured Knowledge will be modeled with Notes using semantic markdown, as proposed in chapter \ref{ch:markdown}.
+Considering this, we choose RDF graphs as the data model and a graph database as the storage model for PKGs. RDF graphs are an open standard and already support a wide array of mature technologies, like query languages, description logic, and external schema that will be of use for PKGs \cite{sparql, owl}. Graph databases are chosen because they are more performant when doing path traversals or recursive querys to navigate associated knowledge. Structured knowledge will be implemented with the RDF data model. Semi- and unstructured Knowledge will be modeled with Notes using semantic markdown, as proposed in chapter \ref{ch:markdown}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{ninkrdf.png}
-  \caption{pkg tool interface (left) and RDF graph (right)}
+  \includegraphics[width=\textwidth]{ninkrdf.png}
+  \caption{Pkg tool interface (left) and RDF graph (right)}
   \label{fig:ninkrdf}
   \end{figure}
 
@@ -48,9 +48,9 @@ The PKG data model is an RDF graph dataset with several Layers:
 
   \item[Adaptive personal schema.] The user can freely edit classes and properties in his personal schema, which will be saved for future use.
 
-  \item[Structured data and notes.] This is the main Data Layer of the Personal Knowledge Graph.
+  \item[Structured data and notes.] This is the main data layer of the personal knowledge graph.
 
-  \item[Temporary data.] A temporary Data Layer for external RDF data and runtime generated data produced by notes, reasoning, inverted links, etc.
+  \item[Temporary data.] A temporary data layer for external RDF data and runtime generated data produced by notes, reasoning, inverted links, etc.
 
   \item[Metadata.] This data layer can be used by applications to save metadata like the order of notes or display properties like highlights, alignment, etc.
 \end{description}
@@ -60,11 +60,11 @@ The PKG data model is an RDF graph dataset with several Layers:
 
 
 
-\section{CRUD operations and effects}
+\section{CRUD Operations and Effects}
 
 In this section, we outline the effect of create, read, update and delete (CRUD) operations on the data model.
 
-These operations are illustrated by pseudocode similar to the RDFJS spec \cite{rdfjs}. Quads are RDF triples with an optional Graph IRI. Dataset is a quad store. Function calls are blue and their parameters indented. Quads are in Turtle syntax and separated by newlines.
+These operations are illustrated by pseudocode similar to the RDFJS spec \cite{rdfjs}. Quads are RDF triples with an optional graph IRI. Dataset is a quad store. Function calls have their parameters indented. Quads are in a syntax similar to Turtle, but with an additional graph term and separated by newlines.
 
 \subsection*{Create}
 
@@ -72,26 +72,26 @@ These operations are illustrated by pseudocode similar to the RDFJS spec \cite{r
 // create Class "Idea" (into users personal schema layer)
 // inserts the quads in this array into the dataset
 Dataset.addQuads
-  :IRI rdf:type rdfs:Resource :UserSchema
-  :IRI rdf:type rdfs:Class :UserSchema
-  :IRI rdfs:label "Idea" :UserSchema
+  :IRI rdf:type rdfs:Resource :UserSchema .
+  :IRI rdf:type rdfs:Class :UserSchema .
+  :IRI rdfs:label "Idea" :UserSchema .
 \end{lstlisting}
 
 \begin{lstlisting}
 // create Relationship "author" (into users personal schema layer)
 Dataset.addQuads
-  :IRI rdf:type rdfs:Resource :UserSchema
-  :IRI rdf:type rdfs:Property :UserSchema
-  :IRI rdfs:domain rdfs:Resource :UserSchema
-  :IRI rdf:range rdfs:Resource :UserSchema
-  :IRI rdfs:label "author" :UserSchema    
+  :IRI rdf:type rdfs:Resource :UserSchema .
+  :IRI rdf:type rdfs:Property :UserSchema .
+  :IRI rdfs:domain rdfs:Resource :UserSchema .
+  :IRI rdf:range rdfs:Resource :UserSchema .
+  :IRI rdfs:label "author" :UserSchema .
 \end{lstlisting}
 
 \begin{lstlisting}
 // create Node "Hypothesis" (into data layer)
 Dataset.addQuads
-    :IRI rdf:type rdfs:Resource :Data
-    :IRI rdfs:label "Hypothesis" :Data
+    :IRI rdf:type rdfs:Resource :Data .
+    :IRI rdfs:label "Hypothesis" :Data .
 
 \end{lstlisting}
 
@@ -106,8 +106,6 @@ Dataset.match
   object
   graph
 \end{lstlisting}
-
-
 
 
 \begin{lstlisting}
@@ -182,8 +180,8 @@ Dataset.deleteQuads
     *
 
 Dataset.addQuads
-  :IRI rdf:type rdfs:Resource :Data
-  :IRI rdfs:label "Hypothesis" :Data
+  :IRI rdf:type rdfs:Resource :Data .
+  :IRI rdfs:label "Hypothesis" :Data .
 
 \end{lstlisting}
 
@@ -196,9 +194,7 @@ Dataset.addQuads
 
 In this section, we propose an implementation for storing semistructured text in RDF.
 
-Note that because RDF Graphs are unordered, text nodes need to be coupled with metadata defining their display order.
-
-Let us start with a simple example:
+Note that because RDF graphs are unordered, text nodes need to be coupled with metadata defining their display order. Let us start with a simple example:
 
 \begin{verbatim}
 :IRI rdf:type :Person, :Artist, :Musician
@@ -223,7 +219,7 @@ Let us start with a simple example:
 \end{verbatim}
 
 
-Could be rendered like this by a PKG Tool:
+Could be rendered like this by a PKG tool:
 
 \begin{verbatim}
 - rdfs:label -> "Lady Gaga"
@@ -238,6 +234,6 @@ Could be rendered like this by a PKG Tool:
 \end{verbatim}
 
 
-The RDF Property \verb|:note| is special and signals to the PKG Tool that this Entity should be treated as a Text Note / Semantic Markdown on the Entity. Note that all of the unstructured text notes are still their own IRIs. This means SemanticMarkdown can be associated with or rendered on an unlimited number of other Entities. They have \verb|rdf:type :SemanticMarkdown|, which signals the PKG Tool to render it in outliner mode.
+The RDF property \verb|:note| is special and signals to the PKG tool that this entity should be treated as a text note / semantic markdown on the entity. Note that all of the unstructured text notes are still their own IRIs. This means markdown can be associated with or rendered on an unlimited number of other Entities. They have \verb|rdf:type :SemanticMarkdown|, which signals the PKG tool to render it in outliner mode.
 
 In the next chapter, we look at how this markdown attached to the RDF graph can be used to mix structured and unstructured knowledge into the PKG data layers. We will propose an extension of markdown called semantic markdown.

@@ -1,17 +1,17 @@
 \chapter{Preliminaries} \label{ch:preliminaries}
-This chapter provides definitions for concepts used throughout the thesis. These definitions were influenced by related literature \cite{Hogan2021KG, wikiGraph, acostaKG}. For descriptions of terms and phrases please refer to the glossary.
+This chapter provides definitions for concepts used throughout the thesis. These definitions were influenced by related literature \cite{Hogan2021KG, wikiGraph}.
 
 
 \section{Knowledge Graphs}
 
 \begin{definition}[Graph]
-    A \textbf{graph} is a tuple $G = (V, E)$, where $V$ is a set of \textbf{vertices} and $\displaystyle E\subseteq \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is a set of \textbf{edges}.
+    A \textbf{graph} is a tuple $G = (V, E)$, where $V$ is a set of \textbf{vertices} and $\displaystyle E\subseteq \{\{x,y\}\mid x,y\in V\}$ is a set of \textbf{edges}.
 
-    Vertices are also called nodes, or points. Edges are sometimes called links or relationships.
+    Vertices are also called nodes or points. Edges are sometimes called links or relationships.
 \end{definition}
 
 \begin{definition}[Directed graph]
-    A \textbf{directed graph} is a tuple $G = (V,E)$, where $V$ is a set of vertices and $\displaystyle E\subseteq \left\{(x,y)\mid (x,y)\in V^{2}\;{\textrm {and}}\;x\neq y\right\}$ is a set of \textbf{directed edges}.
+    A \textbf{directed graph} is a tuple $G = (V,E)$, where $V$ is a set of vertices and $\displaystyle E\subseteq \{(x,y)\mid (x,y)\in V^{2}\}$ is a set of \textbf{directed edges}.
 
     Directed edges are also called arcs.
 \end{definition}
@@ -25,25 +25,25 @@ This chapter provides definitions for concepts used throughout the thesis. These
 
 
 \begin{definition}[Multigraph]
-    A \textbf{multigraph} is a tuple $\displaystyle G=(V,E,\phi )$, where $V$ is a set of vertices, $E$ is a set of edges and $\displaystyle \phi :E\to \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is an incidence function mapping every edge to an unordered pair of vertices.
+    A \textbf{multigraph} is a tuple $\displaystyle G=(V,E,\phi )$, where $V$ is a set of vertices, $E$ is a set of edges and $\displaystyle \phi :E\to \{\{x,y\}\mid x,y\in V\}$ is an incidence function mapping every edge to an unordered pair of vertices.
 \end{definition}
 
 \begin{definition}[Knowledge Graph]
     All of the above definitions can be combined to get a directed labeled multigraph.
-    A \textbf{Knowledge Graph} is such a directed labeled multigraph with a special typing label $t \in X$ that connects vertices from $I$ with vertices from $C$, where $I \subset V$ corresponds to individuals or entities, and $C \subset V$ corresponds to classes or types.
+    A \textbf{knowledge graph} is such a directed labeled multigraph with a special typing label $t \in X$ that connects vertices from $I$ with vertices from $C$, where $I \subset V$ corresponds to individuals or entities, and $C \subset V$ corresponds to classes or types.
 \end{definition}
 
 
 The definition of KGs remains contentious \cite{Hogan2021KG,commonsenseKG}. To put the formal definition above in words, consider a KG as a data graph that represents knowledge as entities and the relationships between them. 
 
-We define a \textbf{Personal Knowledge Graph} as a KG that represents knowledge relevant or related to the person in question.
+We define a \textbf{personal knowledge graph} as a KG that represents knowledge relevant or related to the person in question.
 
-A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices and edges have labels, and "type" label points from individuals (white nodes) to classes (blue nodes).
+A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices and edges have labels, and the "type" label points from individuals (white nodes) to classes (blue nodes).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{kg}
-    \caption[]{A Knowledge Graph}
+    \includegraphics[width=\textwidth]{kg}
+    \caption{A Knowledge Graph}
     \label{fig:kg}
 \end{figure}
 
@@ -57,7 +57,7 @@ A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices
 
 The semantic web technologies that will be used extensively in this thesis include the Resource Description Framework (RDF) and the Terse RDF Triple Language (Turtle).
 
-RDF is a data model standard designed by the W3C. It can be used to represent and exchange graph data on the web. RDF is a directed edge-labeled graph composed of triple statements. A triple consists of a subject, predicate and object. Three different RDF Terms can appear in a statement: Internationalized Resource Identifiers (IRIs), blank nodes and literals. IRIs refer to globally unique resources, blank nodes represent resources without identifiers, and literals are plain data values. The position of these terms inside of an RDF statement is limited as follows:
+RDF is a data model standard designed by the W3C. It can be used to represent and exchange graph data on the web. RDF is a directed edge-labeled graph composed of triple statements. A triple consists of a subject, predicate and object. Three different RDF terms can appear in a statement: Internationalized Resource Identifiers (IRIs), blank nodes and literals. IRIs refer to globally unique resources, blank nodes represent resources without identifiers, and literals are plain data values. The position of these terms inside of an RDF statement is limited as follows:
 
 \begin{itemize}
     \item The subject can contain an IRI or a blank node.
@@ -65,18 +65,18 @@ RDF is a data model standard designed by the W3C. It can be used to represent an
     \item The object can contain an IRI, a blank node or a literal.
 \end{itemize}
 
-Multiple RDF Statements thus form a graph. This motivates the following
+Multiple RDF statements thus form a graph. This motivates the following
 
 \begin{definition}[RDF Graph]
-    Let $I$ be a set of IRIs, $B$ a set of blank nodes, and $L$ a set of RDF literals. A tuple $\displaystyle (s,p,o) \in (U \cup B) \times U \times (U \cup B \cup \L)$ is called an \textbf{RDF triple}, where s is the subject, p is the predicate and o is the object. A set of RDF triples is called an \textbf{RDF Graph}.
+    Let $I$ be a set of IRIs, $B$ a set of blank nodes, and $L$ a set of RDF literals. A tuple $\displaystyle (s,p,o) \in (U \cup B) \times U \times (U \cup B \cup \L)$ is called an \textbf{RDF triple}, where s is the subject, p is the predicate and o is the object. A set of RDF triples is called an \textbf{RDF graph}.
 \end{definition}
 
-A visual representation of an RDF Graph can be seen in Figure \ref{fig:rdfgraph}. IRIs are simplified and abbreviated. Green rectangles represent literals. Notice how node and arc lables are not necessarily human readable, as they are IRIs. 
+A visual representation of an RDF graph can be seen in Figure \ref{fig:rdfgraph}. IRIs are simplified and abbreviated. Green rectangles represent literals. Notice how node and arc lables are not necessarily human readable, as they are IRIs. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{rdfgraph}
-    \caption[]{An RDF Graph}
+    \caption{An RDF Graph}
     \label{fig:rdfgraph}
 \end{figure}
 
@@ -84,7 +84,7 @@ Turtle is a serialization and file format for RDF. It provides an easy-to-read s
 
 \
 
-\begin{lstlisting}[caption={turtle example}, label=lst:turtle]
+\begin{lstlisting}[caption={Turtle example}, label=lst:turtle]
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ex: <http://www.example.org/> .
@@ -94,4 +94,4 @@ ex:Pizza rdfs:label "Pizza" .
 
 \end{lstlisting}
 
-For more Information about Semantic Web Technologies, we refer the reader to the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
+For more information about semantic web technologies, we refer the reader to the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.

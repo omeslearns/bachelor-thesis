@@ -11,13 +11,13 @@
 
 % I agree with all the previous comments. Also, to motivate this chapter you have to properly link it to the general idea of PKGs.  My suggestion is that you explain that PKGs are composed of semi-structured knowledge (so, what you covered in the previous chapter) and unstructured knowledge (i.e., text, that you are addressing in this chapter. So the idea here is to add semantic annotations to unstructured knowledge to enrich the PKGs by adding explicit connections from the text to semantic concepts in the PKG. 
 
-Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Text gets transformed by prepending or enclosing it in special Characters like \verb|\# * -| etc.
+Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Text gets transformed by prepending or enclosing it in special characters like \verb|\# * -| etc.
 
 \section{Markdown Flavors}
 
-Markdown although not standardized, is embraced by the web community and continuously extended. There are several flavors (Github, CommonMark, etc.), which can be roughly separated into the following expressivity levels:
+Markdown, although not standardized, is embraced by the web community and continuously extended. There are several flavors (Github, CommonMark, etc.), which can be roughly separated into the following expressivity levels:
 
-\textbf{Basic Markdown.} Includes mostly Text formatting:
+\textbf{Basic Markdown.} Includes mostly text formatting:
 \begin{itemize}
     \item \# Headings, \textbf{bold}, \emph{italic}, \sout{strikethrough}, \verb|code|
     \item Numbered and bulleted Lists
@@ -52,26 +52,24 @@ Markdown although not standardized, is embraced by the web community and continu
     
     
 
-A similar appraoch to “Hypertext Markdown” could be used as a syntax for creating RDF triples in Markdown, which we will propose in the next section.
+A similar appraoch to hypertext markdown could be used as a syntax for creating RDF triples in markdown, which we will propose in the next section.
 
-\section{A Semantic Markdown extension (.mds?)}
+\section{A Semantic Markdown Extension}
 
-This takes the approach of Hyptertext markdown and adds semantic relationships to it. These semantic relationships are then manifested into the temporary Data Layer during runtime.
+This takes the approach of hyptertext markdown and adds semantic relationships to it. These semantic relationships are then manifested into the temporary Data Layer during runtime.
 
-The Syntax is invoked by wrapping the expressions in special characters. These Characters are typed twice, so they don’t get accidentaly triggered in the application. For the characters used, we looked at special characters easily reachable on both a physial  and digital ANSI Keyboard. we substracted the ones that are frequently used in other contexts, like \verb|** ~~ \\ !! ??|, to come up with the following list:
+The syntax is invoked by wrapping the expressions in special characters. These characters are typed twice, so they don’t get accidentaly triggered in the application. For the characters used, we looked at special characters easily reachable on both a physial  and digital ANSI keyboard. we substracted the ones that are frequently used in other contexts, like \verb|** ~~ \\ !! ??|, to come up with the following list:
 \begin{itemize}
     \item \verb|[[| link to IRI, similar to rdfs:seeAlso
-    \item \verb|((| embed title of a Note, similar to mention (without children)
-    \item \verb|{{| embed a Note or IRI (with children)
+    \item \verb|((| embed title of a note, similar to mention (without children)
+    \item \verb|{{| embed a note or IRI (with children)
     \item \verb|>>| link to external IRI
     \item \verb|<<| embed of external IRI
-    \item \verb|&&|
-    \item \verb|%%|
-    \item \verb|::|
-    \item \verb|;;|
+    % \item \verb|&&| 
+    % \item \verb|%%|
 \end{itemize}
 
-The syntax  to create RDF Properties with these characters could use a label for the link to render  in markdown, followed by turtle triples separated by a delimiter, a comma in this example. These Turtle Triples would automatically use the IRI to which the \verb|<:note>| is attached to as their subject.
+The syntax to create RDF properties with these characters could use a label for the link to render in markdown, followed by turtle triples separated by a delimiter, a comma in this example. These turtle triples would automatically use the IRI to which the \verb|<:note>| is attached to as their subject, like this:
 
 \begin{verbatim}
 [[
@@ -81,7 +79,7 @@ rdfs:seeAlso <http://www.w3.org/2000/01/rdf-schema\#>
 ]]
 \end{verbatim}
 
-Let us consider an Example of how this could look like in a Note:
+Let us consider an example of how this could look like in a note:
 \begin{verbatim}
 # Notes on the RDF IRI "Sun"
 The Sun is the [["Star", rdf:type ex:Star]] at the center of 
@@ -100,7 +98,7 @@ throughout the [["Solar System", ex:location ex:Solar\_System]],
 only Earth sustains liquid surface water.
 \end{verbatim}
 
-Would result in the following RDF inserted into the temporary data Layer:
+Would result in the following RDF inserted into the temporary data layer:
 
 \begin{verbatim}
 ex:Sun rdf:type ex:Star
@@ -112,9 +110,11 @@ ex:Sun ex:location ex:Solar\_System
 \end{verbatim}
 
 
-Embeds and title mentions can only be used as separate Paragraphs, and are rendered as the content or title of their reference.
+Embeds and title mentions can only be used as separate paragraphs, and are rendered as the content or title of their reference.
 
 \section{Outlook}
 
-We demonstrated how Semantic Markdown can be used to infer RDF Statements from plain Text through the use of a special Syntax. These RDF statements always connect to all the parents of the \verb|<:note>| (recursively), by using the parents IRI as the subject for the inferred RDF triples. This enables the triples to be present on all parent IRIs
+The semantic markdown proposed in this chapter could be used to infer RDF statements from plain text through the use of a special syntax. These RDF statements would always connect to all the parents of the \verb|<:note>| (recursively), by using the parents IRI as the subject for the inferred RDF triples. This would enables the triples to be present on all parent IRIs.
+
+Semantic markdown would need to be standardized to be useful in combination with RDF or other data models.
 

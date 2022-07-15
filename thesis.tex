@@ -10,7 +10,7 @@
 fontsize=12pt,
 paper=a4,
 abstract=true,
-% listof=totoc,
+listof=totoc,
 headings=standardclasses,
 chapterprefix=false,
 numbers=noenddot,
@@ -66,13 +66,13 @@ parskip=half+, % comment this out if you do not want an empty half line between 
 }
 \usepackage[
 backend=biber,
-% style=ieee,
+style=ieee,
 sorting=nyt
 ]{biblatex}
 % \PassOptionsToPackage{hyphens}{url}
 \addbibresource{references.bib} %Import the bibliography file
 
-\renewcommand\lstlistlistingname{List of Source Code}
+\renewcommand\lstlistlistingname{List of Code}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Preamble
@@ -89,15 +89,7 @@ sorting=nyt
 \input{I-preamble/04dedications}
 
 \tableofcontents
-\listoffigures 
-\begingroup
-\let\clearpage\relax
-\listoftables
-\endgroup
-\begingroup
-\let\clearpage\relax
-\lstlistoflistings
-\endgroup
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chapters
@@ -121,7 +113,15 @@ sorting=nyt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\printglossaries
+\listoffigures 
+\begingroup
+\let\clearpage\relax
+\listoftables
+\endgroup
+\begingroup
+\let\clearpage\relax
+\lstlistoflistings
+\endgroup
 \printbibliography[heading=bibintoc, title={References}]
 
 \end{document}
