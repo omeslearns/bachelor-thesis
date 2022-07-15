@@ -32,6 +32,13 @@ In chapter \ref{ch:ecosystem} we saw that current PKG tools are based on proprie
 
 Considering this, we choose RDF Graphs as the data model and a graph database as the storage model for PKGs. RDF Graphs are an open standard and already support a wide array of mature technologies, like query languages, description logic, and external schema that will be of use for PKGs \cite{sparql, owl}. Graph databases are chosen because they are more performant when doing path traversals or recursive querys to navigate associated knowledge. Structured knowledge will be implemented with the RDF data model. Semi- and unstructured Knowledge will be modeled with Notes using semantic markdown, as proposed in chapter \ref{ch:markdown}.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{ninkrdf.png}
+  \caption{pkg tool interface (left) and RDF graph (right)}
+  \label{fig:ninkrdf}
+  \end{figure}
+
 \section{RDF Dataset Layers}
 
 The PKG data model is an RDF graph dataset with several Layers:
@@ -234,7 +241,3 @@ Could be rendered like this by a PKG Tool:
 The RDF Property \verb|:note| is special and signals to the PKG Tool that this Entity should be treated as a Text Note / Semantic Markdown on the Entity. Note that all of the unstructured text notes are still their own IRIs. This means SemanticMarkdown can be associated with or rendered on an unlimited number of other Entities. They have \verb|rdf:type :SemanticMarkdown|, which signals the PKG Tool to render it in outliner mode.
 
 In the next chapter, we look at how this markdown attached to the RDF graph can be used to mix structured and unstructured knowledge into the PKG data layers. We will propose an extension of markdown called semantic markdown.
-
-\begin{figure}[H]
-    \includegraphics[width=0.5\textwidth]{pkg}
-\end{figure}
