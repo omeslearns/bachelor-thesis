@@ -1,12 +1,8 @@
 \chapter{Preliminaries} \label{ch:preliminaries}
-This chapter provides definitions for concepts used throughout the thesis. For descriptions of terms and phrases please refer to the glossary.
+This chapter provides definitions for concepts used throughout the thesis. These definitions were influenced by related literature \cite{Hogan2021KG, wikiGraph, acostaKG}. For descriptions of terms and phrases please refer to the glossary.
 
-\begin{itemize}
-    \item Knowledge base
-    \item knowledg graph 
-    \item RDF 
-    \item TURTLE
-\end{itemize}
+
+\section{Knowledge Graphs}
 
 \begin{definition}[Graph]
     A \textbf{graph} is a tuple $G = (V, E)$, where $V$ is a set of \textbf{vertices} and $\displaystyle E\subseteq \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is a set of \textbf{edges}.
@@ -26,40 +22,70 @@ This chapter provides definitions for concepts used throughout the thesis. For d
     A \textbf{multigraph} is a tuple $\displaystyle G=(V,E,\phi )$, where $V$ is a set of vertices, $E$ is a set of edges and $\displaystyle \phi :E\to \{\{x,y\}\mid x,y\in V\;{\textrm {and}}\;x\neq y\}$ is an incidence function mapping every edge to an unordered pair of vertices.
 \end{definition}
 
-\begin{remark}
-    These definitions can be combined to get a directed labeled multigraph.
-\end{remark}
+\begin{definition}[Knowledge Graph]
+    All of the above definitions can be combined to get a directed labeled multigraph.
+    A \textbf{Knowledge Graph} is such a directed labeled multigraph with a special typing label $t \in X$ that connects vertices from $I$ with vertices from $C$, where $I \subset V$ corresponds to individuals or entities, and $C \subset V$ corresponds to classes or types.
+\end{definition}
 
 
-% \includegraphics[width=0.7\textwidth]{defKG.png}
-% \begin{definition}[Knowledge Graph]
-%     A \textbf{Knowledge Graph} is a directed labeled multigraph.
-% \end{definition}
+The definition of KGs remains contentious \cite{Hogan2021KG,commonsenseKG}. To put the formal definition above in words, consider a KG as a data graph that represents knowledge as entities and the relationships between them. 
 
-\begin{remark}
-    The definition of a KG remains contentious \cite{Hogan2021KG,commonsenseKG}.
-\end{remark}
+We define a \textbf{Personal Knowledge Graph} as a KG that represents knowledge relevant or related to the person in question.
+
+A visual representation of a KG can be seen in Figure \ref{fig:kg}. The vertices and edges have labels, and the "is" label represents the special typing label.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{kg}
     \caption[]{A Knowledge Graph}
+    \label{fig:kg}
 \end{figure}
+
+
+
+
+
+
+
+\section{Semantic Web}
+
+The semantic web technologies that will be extensively used in this thesis include the Resource Description Framework (RDF) and the Terse RDF Triple Language (Turtle).
+
+RDF is a data model standard designed by the W3C. It can be used to represent and exchange graph data on the web. RDF is a directed edge-labeled graph composed of triple statements. A triple consists of a subject, predicate and object. Three different RDF Terms can appear in a statement: Internationalized Resource Identifiers (IRIs), blank nodes and literals. IRIs refer to globally unique resources, blank nodes represent resources without identifiers, and literals are plain data values. The position of these terms inside of an RDF statement is limited as follows:
+
+\begin{itemize}
+    \item The subject can contain an IRI or a blank node.
+    \item The predicate can only contain an IRI.
+    \item The object can contain an IRI, a blank node or a literal.
+\end{itemize}
+
+Multiple RDF Statements thus form a graph. This motivates the following
+
+\begin{definition}[RDF Graph]
+    Let $I$ be a set of IRIs, $B$ a set of blank nodes, and $L$ a set of RDF literals. A tuple $\displaystyle (s,p,o) \in (U \cup B) \times U \times (U \cup B \cup \L)$ is called an \textbf{RDF triple}, where s is the subject, p is the predicate and o is the object. A set of RDF triples is called an \textbf{RDF Graph}.
+\end{definition}
+
+A visual example of such an RDF Graph can be seen in Figure \ref{fig:rdfgraph}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{rdf}
     \caption[]{An RDF Graph}
+    \label{fig:rdfgraph}
 \end{figure}
 
-% For more background on these concepts, we refer the reader to the primer on the subject by Hogan et al \cite{Hogan2021KG} and the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
+Turtle is a serialization and file format for RDF. It provides an easy-to-read syntax for RDF statements. Listing \ref{lst:turtle} shows an example of turtle's syntax.
 
-% comment: This is not an RDF graph. 
+\
 
-% This picture is not correct in several ways: 
+\begin{lstlisting}[caption={turtle example}, label=lst:turtle]
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://www.example.org/> .
 
-% 1. In an RDF triple, properties are labels of the edges, not nodes themselves. So, in the RDF triple (Q9439, P22, Q157009) P22 is just the label of the edge, not a node. This also solves the problem that some of your edges do not have labels, which is not allowed in RDF. 
+ex:Pizza rdf:type ex:Meal .
+ex:Pizza rdfs:label "Pizza" .
 
-% 2. The labels for properties like label_en and label_de is not the standard way of representing human-readable labels in RDF. For that we use rdfs:label, and it is ONE property, without distinction of the the language in the property. If you want to say that the value is in a specific language, then we use language-tagged literals … for example “Queen Victoria”@en. 
+\end{lstlisting}
 
-% 3. It is a convention when plotting RDF graphs to use rectangles for depicting  literals, and ovals for IRIS 
+For more Information about Semantic Web Technologies, we refer the reader to the official W3C specifications \cite{rdf, rdfs, owl, turtle, sparql, xsd}.
